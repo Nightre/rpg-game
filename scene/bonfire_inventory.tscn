@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh3hjlhkcus2y"]
+
+[ext_resource type="PackedScene" uid="uid://obuklx15ssjo" path="res://scene/inventory_gui.tscn" id="1_om82d"]
+[ext_resource type="Script" uid="uid://trghhrgo3fax" path="res://addons/gloot/ui/ctrl_item_slot.gd" id="1_v2w8k"]
+[ext_resource type="Script" uid="uid://c6wangdtwc4m7" path="res://addons/gloot/core/item_slot.gd" id="2_1eg84"]
+[ext_resource type="JSON" path="res://data/item.json" id="3_wc7by"]
+[ext_resource type="Texture2D" uid="uid://doq2hnyhhnot1" path="res://assets/slot.png" id="5_wc7by"]
+[ext_resource type="Texture2D" uid="uid://bvrmo05higj67" path="res://assets/arrow_gui.png" id="6_7hh3t"]
+[ext_resource type="Texture2D" uid="uid://dvy0bx3h3jsms" path="res://assets/gui_fire.png" id="7_6d7bk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7c18g"]
+texture = ExtResource("5_wc7by")
+
+[node name="BonfireInventory" instance=ExtResource("1_om82d")]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 192.0
+offset_bottom = 192.0
+
+[node name="Label" type="Label" parent="." index="0"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 31.0
+text = "篝火"
+
+[node name="CtrlItemSlot" type="Control" parent="Label" index="0" node_paths=PackedStringArray("item_slot")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 48.0
+offset_bottom = 96.0
+script = ExtResource("1_v2w8k")
+item_slot = NodePath("ItemSlot")
+slot_style = SubResource("StyleBoxTexture_7c18g")
+slot_highlighted_style = SubResource("StyleBoxTexture_7c18g")
+metadata/_custom_type_script = "uid://trghhrgo3fax"
+
+[node name="ItemSlot" type="Node" parent="Label/CtrlItemSlot" index="0"]
+script = ExtResource("2_1eg84")
+protoset = ExtResource("3_wc7by")
+metadata/_custom_type_script = "uid://c6wangdtwc4m7"
+
+[node name="CtrlItemSlot2" type="Control" parent="Label" index="1" node_paths=PackedStringArray("item_slot")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 48.0
+offset_bottom = 176.0
+script = ExtResource("1_v2w8k")
+item_slot = NodePath("ItemSlot")
+slot_style = SubResource("StyleBoxTexture_7c18g")
+slot_highlighted_style = SubResource("StyleBoxTexture_7c18g")
+metadata/_custom_type_script = "uid://trghhrgo3fax"
+
+[node name="ItemSlot" type="Node" parent="Label/CtrlItemSlot2" index="0"]
+script = ExtResource("2_1eg84")
+protoset = ExtResource("3_wc7by")
+metadata/_custom_type_script = "uid://c6wangdtwc4m7"
+
+[node name="CtrlItemSlot3" type="Control" parent="Label" index="2" node_paths=PackedStringArray("item_slot")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 104.0
+offset_right = 120.0
+offset_bottom = 144.0
+script = ExtResource("1_v2w8k")
+item_slot = NodePath("ItemSlot")
+slot_style = SubResource("StyleBoxTexture_7c18g")
+slot_highlighted_style = SubResource("StyleBoxTexture_7c18g")
+metadata/_custom_type_script = "uid://trghhrgo3fax"
+
+[node name="ItemSlot" type="Node" parent="Label/CtrlItemSlot3" index="0"]
+script = ExtResource("2_1eg84")
+protoset = ExtResource("3_wc7by")
+metadata/_custom_type_script = "uid://c6wangdtwc4m7"
+
+[node name="ArrowGui" type="Sprite2D" parent="Label" index="3"]
+position = Vector2(64, 120)
+texture = ExtResource("6_7hh3t")
+
+[node name="GuiFire" type="Sprite2D" parent="Label" index="4"]
+position = Vector2(24, 120)
+texture = ExtResource("7_6d7bk")
+hframes = 4

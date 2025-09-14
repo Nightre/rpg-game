@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddetojf0bvko1"]
+
+[ext_resource type="PackedScene" uid="uid://c2wq50yf2xw2b" path="res://scene/actionable.tscn" id="1_f3nmy"]
+[ext_resource type="Script" uid="uid://bh608tuka8bcl" path="res://scene/gui_actionable.gd" id="2_bdosa"]
+
+[node name="GUIActionable" instance=ExtResource("1_f3nmy")]
+script = ExtResource("2_bdosa")

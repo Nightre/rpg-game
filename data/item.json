@@ -1,0 +1,14 @@
+{
+	"item_stone": {
+		"id":"item_stone",
+		"stack_size": 1,
+		"max_stack_size": 52,
+		"image":"res://assets/item_stone.png"
+	},
+	"item_fruit": {
+		"id":"item_fruit",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image":"res://assets/item_fruit.png"
+	}
+}

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://jsxi1qr0ppqc"]
+
+[ext_resource type="Script" uid="uid://bv58qg8go44ay" path="res://scene/pickable.gd" id="1_kbfh2"]
+[ext_resource type="Texture2D" uid="uid://dgpvyp53dg3bf" path="res://assets/tileset.png" id="1_sidqw"]
+[ext_resource type="PackedScene" uid="uid://c2wq50yf2xw2b" path="res://scene/actionable.tscn" id="3_hukvp"]
+
+[node name="Pickable" type="Node2D"]
+script = ExtResource("1_kbfh2")
+
+[node name="Tileset" type="Sprite2D" parent="."]
+texture = ExtResource("1_sidqw")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="Actionable" parent="." instance=ExtResource("3_hukvp")]
+
+[connection signal="interacted" from="Actionable" to="." method="_on_actionable_interacted"]

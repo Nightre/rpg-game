@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://b20t5ok76v2pi"]
+
+[ext_resource type="Script" uid="uid://5hfig5q3x8it" path="res://addons/gloot/core/inventory.gd" id="1_fb012"]
+[ext_resource type="JSON" path="res://data/item.json" id="2_kpipp"]
+[ext_resource type="Script" uid="uid://b8hbvp4kl88cn" path="res://addons/gloot/core/constraints/grid_constraint.gd" id="3_jj3rf"]
+[ext_resource type="Script" uid="uid://d0pfc3q6sof8y" path="res://addons/gloot/ui/ctrl_inventory_grid.gd" id="4_kpipp"]
+
+[node name="Inventory" type="Control"]
+custom_minimum_size = Vector2(336, 336)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 336.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 336.0
+offset_bottom = 336.0
+
+[node name="CtrlInventoryGrid" type="Control" parent="Panel" node_paths=PackedStringArray("inventory")]
+custom_minimum_size = Vector2(320, 320)
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 328.0
+offset_bottom = 328.0
+script = ExtResource("4_kpipp")
+inventory = NodePath("../../Inventory")
+metadata/_custom_type_script = "uid://d0pfc3q6sof8y"
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("1_fb012")
+protoset = ExtResource("2_kpipp")
+_serialized_format = {
+"constraints": {
+"res://addons/gloot/core/constraints/grid_constraint.gd": {
+"data": {
+"item_positions": {},
+"size": "Vector2i(10, 10)"
+},
+"name": &"GridConstraint"
+}
+},
+"node_name": "Inventory",
+"protoset": "res://data/item.json"
+}
+metadata/_custom_type_script = "uid://5hfig5q3x8it"
+
+[node name="GridConstraint" type="Node" parent="Inventory"]
+script = ExtResource("3_jj3rf")
+metadata/_custom_type_script = "uid://b8hbvp4kl88cn"
