@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://fvediodhnkl6"]
-
-[ext_resource type="PackedScene" uid="uid://c2wq50yf2xw2b" path="res://scene/actionable.tscn" id="1_cagwa"]
-[ext_resource type="Script" uid="uid://cepbdj22g5ow1" path="res://scene/actionable_talk.gd" id="2_fp0ry"]
-
-[node name="ActionableTalk" instance=ExtResource("1_cagwa")]
-script = ExtResource("2_fp0ry")
-timeline = ""

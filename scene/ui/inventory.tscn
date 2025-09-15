@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://b20t5ok76v2pi"]
+
+[ext_resource type="Script" uid="uid://5hfig5q3x8it" path="res://addons/gloot/core/inventory.gd" id="1_fb012"]
+[ext_resource type="Script" uid="uid://duu77wcwik83s" path="res://scene/ui/inventory.gd" id="1_jj3rf"]
+[ext_resource type="JSON" path="res://data/item.json" id="2_kpipp"]
+[ext_resource type="Script" uid="uid://b8hbvp4kl88cn" path="res://addons/gloot/core/constraints/grid_constraint.gd" id="3_jj3rf"]
+[ext_resource type="Script" uid="uid://cno84yuq4c7nh" path="res://scene/ui/item_info_panel.gd" id="3_u7j7x"]
+[ext_resource type="Script" uid="uid://d0pfc3q6sof8y" path="res://addons/gloot/ui/ctrl_inventory_grid.gd" id="4_kpipp"]
+[ext_resource type="Script" uid="uid://cqxfh230qkyyw" path="res://scene/ui/compositer.gd" id="9_c62h7"]
+
+[node name="Inventory" type="Control"]
+custom_minimum_size = Vector2(536, 376)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 536.0
+offset_bottom = 376.0
+script = ExtResource("1_jj3rf")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 320.0
+offset_bottom = 256.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CtrlInventoryGrid" type="Control" parent="Panel/HBoxContainer" node_paths=PackedStringArray("inventory")]
+custom_minimum_size = Vector2(320, 256)
+layout_mode = 2
+script = ExtResource("4_kpipp")
+inventory = NodePath("../../../InventoryData")
+metadata/_custom_type_script = "uid://d0pfc3q6sof8y"
+
+[node name="ItemInfoPanel" type="Panel" parent="Panel/HBoxContainer" node_paths=PackedStringArray("inventory")]
+visible = false
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+script = ExtResource("3_u7j7x")
+inventory = NodePath("../../../InventoryData")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/ItemInfoPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 56.0
+
+[node name="EatButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -40.0
+offset_right = 56.0
+offset_bottom = -9.0
+grow_vertical = 0
+text = "食用"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/ItemInfoPanel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 312.0
+offset_bottom = 72.0
+
+[node name="NameLabel" type="Label" parent="Panel/HBoxContainer/ItemInfoPanel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 31.0
+text = "土豆"
+
+[node name="InventoryData" type="Node" parent="."]
+script = ExtResource("1_fb012")
+protoset = ExtResource("2_kpipp")
+_serialized_format = {}
+metadata/_custom_type_script = "uid://5hfig5q3x8it"
+
+[node name="GridConstraintData" type="Node" parent="InventoryData"]
+script = ExtResource("3_jj3rf")
+size = Vector2i(10, 8)
+
+[node name="Composite" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_right = 536.0
+offset_bottom = 376.0
+
+[node name="Label" type="Label" parent="Composite"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 31.0
+text = "合成"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Composite"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Compositer" type="Node" parent="." node_paths=PackedStringArray("inventory", "container")]
+script = ExtResource("9_c62h7")
+inventory = NodePath("../InventoryData")
+container = NodePath("../Composite/VBoxContainer")
+
+[connection signal="inventory_item_selected" from="Panel/HBoxContainer/CtrlInventoryGrid" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_ctrl_inventory_grid_inventory_item_selected"]
+[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/EatButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_eat_button_pressed"]
+[connection signal="item_added" from="InventoryData" to="Compositer" method="_on_inventory_data_item_added"]
+[connection signal="item_removed" from="InventoryData" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_inventory_data_item_removed"]
+[connection signal="item_removed" from="InventoryData" to="Compositer" method="_on_inventory_data_item_removed"]

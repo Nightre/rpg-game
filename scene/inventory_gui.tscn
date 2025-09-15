@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://obuklx15ssjo"]
+[gd_scene load_steps=2 format=3 uid="uid://vmtjwthp8v6l"]
 
-[ext_resource type="Script" uid="uid://bt4xyu45gdx5x" path="res://scene/inventory_gui.gd" id="1_k7ta3"]
+[sub_resource type="GDScript" id="GDScript_wprjp"]
+script/source = "class_name InventoryGUI extends Control
+
+@onready var parent = get_parent()
+	
+func _ready() -> void:
+	hide()
+	
+func open(hud:HUD):
+	show()
+	reparent(hud.inventory_container, false)
+	
+func close():
+	hide()
+	reparent(parent)
+"
 
 [node name="InventoryGUI" type="Panel"]
-script = ExtResource("1_k7ta3")
+script = SubResource("GDScript_wprjp")

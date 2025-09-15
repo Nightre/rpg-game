@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc25yfyecgdw8"]
+
+[ext_resource type="Texture2D" uid="uid://bpv3lwgju7nyj" path="res://assets/image/item/item_wood.png" id="1_m7njx"]
+[ext_resource type="Script" uid="uid://8fxack1k1yp2" path="res://scene/ui/effect_info.gd" id="1_qhmnl"]
+
+[node name="EffectInfo" type="Panel"]
+custom_minimum_size = Vector2(150, 64)
+offset_right = 150.0
+offset_bottom = 64.0
+script = ExtResource("1_qhmnl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 56.0
+texture = ExtResource("1_m7njx")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 31.0
+text = "治愈"
+
+[node name="TimeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 105.0
+offset_bottom = 55.0
+text = "00:00"

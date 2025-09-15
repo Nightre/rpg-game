@@ -17,7 +17,7 @@
 &"portraits": {
 "Default": {
 "export_overrides": {
-"image": "\"res://assets/ren_image.png\""
+"image": "\"res://assets/image/character/ren_image.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

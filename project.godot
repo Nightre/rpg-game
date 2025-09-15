@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Global="*res://scene/global.tscn"
+Global="*res://scene/world/global.tscn"
+Data="*res://scene/world/Data.tscn"
 
 [dialogic]
 

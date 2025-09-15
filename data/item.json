@@ -1,14 +1,58 @@
 {
 	"item_stone": {
+		"name":"石头",
 		"id":"item_stone",
 		"stack_size": 1,
 		"max_stack_size": 52,
-		"image":"res://assets/item_stone.png"
+		"image":"res://assets/image/item/item_stone.png",
+		"info":"普通的石头",
 	},
 	"item_fruit": {
+		"name":"水果",
 		"id":"item_fruit",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/item_fruit.png"
+		"image":"res://assets/image/item/item_fruit.png",
+		"edible":true,
+		"info":"一种水果，吃了加血，可以采集",
+	},
+	"speed_potions": {
+		"name":"速度药水",
+		"id":"speed_potions",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image":"res://assets/image/item/item_speed_potion.png",
+		"edible":true,
+		"info":"吃了加速的药水",
+		"effects":["speed"]
+	},
+	"warm_potions": {
+		"name":"温暖药水",
+		"id":"warm_potions",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image":"res://assets/image/item/item_warm_potion.png",
+		"edible":true,
+		"info":"吃了可以保温",
+		"effects":["warm"]
+	},
+	"healt_potions": {
+		"name":"生命药水",
+		"id":"healt_potions",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image":"res://assets/image/item/item_healt_potion.png",
+		"edible":true,
+		"info":"吃了可以加生命值",
+		
+		"health": 10,
+	},
+	"potions": {
+		"name":"玻璃瓶",
+		"id":"potions",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image":"res://assets/image/item/item_potions.png",
+		"info":"可以用来做药水的玻璃瓶",
 	}
 }

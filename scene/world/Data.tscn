@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccphvgqc2n338"]
+
+[ext_resource type="Script" uid="uid://bh6onx0ushvqh" path="res://scene/world/data_mananger.gd" id="1_0ii02"]
+[ext_resource type="Script" uid="uid://c5yvinh5epbr3" path="res://script/effect_data.gd" id="2_lf0qm"]
+[ext_resource type="Texture2D" uid="uid://dfi0177q3tefd" path="res://assets/image/effect/effect_speed.png" id="3_248cn"]
+[ext_resource type="Texture2D" uid="uid://0043hepj70ty" path="res://assets/image/effect/effect_worm.png" id="4_248cn"]
+[ext_resource type="Script" uid="uid://bq2a4vkgi5ue7" path="res://script/composite_data.gd" id="5_rdra6"]
+
+[sub_resource type="Resource" id="Resource_rdra6"]
+script = ExtResource("2_lf0qm")
+effect_name = "疾跑"
+effect_time = 5
+image = ExtResource("3_248cn")
+metadata/_custom_type_script = "uid://c5yvinh5epbr3"
+
+[sub_resource type="Resource" id="Resource_b32bf"]
+script = ExtResource("2_lf0qm")
+effect_name = "温暖"
+effect_time = 6
+image = ExtResource("4_248cn")
+metadata/_custom_type_script = "uid://c5yvinh5epbr3"
+
+[sub_resource type="Resource" id="Resource_randv"]
+script = ExtResource("5_rdra6")
+input = Dictionary[String, int]({
+"item_fruit": 2,
+"item_stone": 1
+})
+output = "speed_potions"
+output_num = 1
+metadata/_custom_type_script = "uid://bq2a4vkgi5ue7"
+
+[sub_resource type="Resource" id="Resource_7g3n3"]
+script = ExtResource("5_rdra6")
+input = Dictionary[String, int]({
+"item_stone": 1
+})
+output = "healt_potions"
+output_num = 1
+metadata/_custom_type_script = "uid://bq2a4vkgi5ue7"
+
+[sub_resource type="Resource" id="Resource_g46a2"]
+script = ExtResource("5_rdra6")
+input = Dictionary[String, int]({
+"item_fruit": 1,
+"item_stone": 2
+})
+output = "warm_potions"
+output_num = 1
+metadata/_custom_type_script = "uid://bq2a4vkgi5ue7"
+
+[node name="DataManager" type="Node"]
+script = ExtResource("1_0ii02")
+effect = Dictionary[String, ExtResource("2_lf0qm")]({
+"speed": SubResource("Resource_rdra6"),
+"warm": SubResource("Resource_b32bf")
+})
+composites = Array[ExtResource("5_rdra6")]([SubResource("Resource_randv"), SubResource("Resource_7g3n3"), SubResource("Resource_g46a2")])

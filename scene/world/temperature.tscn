@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnkx8hin2s245"]
+
+[ext_resource type="Script" uid="uid://dpjtc2s8i3eyv" path="res://scene/world/temperature.gd" id="1_yxhtg"]
+
+[node name="Temperature" type="Node2D" groups=["temperature"]]
+script = ExtResource("1_yxhtg")

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dremjs4mrtcjt"]
+
+[ext_resource type="Script" uid="uid://blq385sf7w5xf" path="res://scene/ui/player_info_hud.gd" id="1_dial1"]
+[ext_resource type="PackedScene" uid="uid://duwij3rt1d34w" path="res://scene/ui/progress_bar.tscn" id="1_u4y16"]
+[ext_resource type="Texture2D" uid="uid://xreexms54vtm" path="res://assets/image/gui/gui_frozen.png" id="2_evwoe"]
+[ext_resource type="Texture2D" uid="uid://cpsyt75qf6ul4" path="res://assets/image/gui/gui_hp_progress_over.png" id="2_j1r1n"]
+
+[node name="PlayerInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dial1")
+
+[node name="ColdTexture" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_evwoe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 152.0
+offset_bottom = 56.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "HP"
+
+[node name="HpProgressBar" parent="HBoxContainer" instance=ExtResource("1_u4y16")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 100.0
+value = 100.0
+texture_progress = ExtResource("2_j1r1n")
+
+[node name="TemperatureLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 53.0
+offset_bottom = 71.0
+text = "温度: 26°"

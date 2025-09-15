@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjjqtu4nvm3vx"]
+
+[ext_resource type="Script" uid="uid://cms3aunth6y2s" path="res://scene/ui/hud.gd" id="1_o8u2p"]
+[ext_resource type="PackedScene" uid="uid://b20t5ok76v2pi" path="res://scene/ui/inventory.tscn" id="1_s3k51"]
+[ext_resource type="PackedScene" uid="uid://dremjs4mrtcjt" path="res://scene/ui/player_info.tscn" id="3_pvgpj"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o8u2p")
+
+[node name="PlayerInfo" parent="." instance=ExtResource("3_pvgpj")]
+layout_mode = 1
+
+[node name="InventoryContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -164.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Inventory" parent="InventoryContainer" instance=ExtResource("1_s3k51")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 80.0
+offset_right = 56.0
+offset_bottom = 120.0
