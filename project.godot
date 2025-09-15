@@ -42,6 +42,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gloot/plugin.cfg")
 
+[global_group]
+
+temperature=""
+
 [input]
 
 move_left={

@@ -13,3 +13,12 @@ script = ExtResource("1_dbls1")
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_33cqm")]
 unique_name_in_owner = true
+
+[connection signal="hp_changed" from="World/Map/TileMapLayer2/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_hp_changed"]
+[connection signal="temperature_changed" from="World/Map/TileMapLayer2/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_temperature_changed"]
+
+[editable path="World"]
+[editable path="World/Map/TileMapLayer2/Player"]
+[editable path="World/Map/Pickable4"]
+[editable path="World/Map/Pickable5"]
+[editable path="CanvasLayer/HUD"]

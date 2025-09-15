@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjjqtu4nvm3vx"]
+[gd_scene load_steps=4 format=3 uid="uid://bjjqtu4nvm3vx"]
 
 [ext_resource type="Script" uid="uid://cms3aunth6y2s" path="res://scene/hud.gd" id="1_o8u2p"]
 [ext_resource type="PackedScene" uid="uid://b20t5ok76v2pi" path="res://scene/inventory.tscn" id="1_s3k51"]
+[ext_resource type="PackedScene" uid="uid://dremjs4mrtcjt" path="res://scene/player_info.tscn" id="3_pvgpj"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -28,3 +29,6 @@ alignment = 1
 [node name="Inventory" parent="InventoryContainer" instance=ExtResource("1_s3k51")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="PlayerInfo" parent="." instance=ExtResource("3_pvgpj")]
+layout_mode = 1

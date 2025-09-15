@@ -30,6 +30,9 @@ func _on_area_exited(area: Area2D) -> void:
 		current_actionable = null
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("action") and current_actionable:
-		interacted.emit(current_actionable)
-		current_actionable.interact()
+	if current_actionable:
+		if event.is_action_pressed("action"):
+			current_actionable.interact_pressed()
+		elif event.is_action_released("action"):
+			current_actionable.interact_released()
+			interacted.emit(current_actionable)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://duwij3rt1d34w"]
+
+[ext_resource type="Texture2D" uid="uid://cg6ptnlwjrd2s" path="res://assets/gui_progress_under.png" id="1_sitq3"]
+[ext_resource type="Texture2D" uid="uid://bsmwmjtp5pn0a" path="res://assets/gui_progress_over.png" id="2_hq8lm"]
+
+[node name="ProgressBar" type="TextureProgressBar"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 2.0
+step = 0.01
+value = 0.5
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_under = ExtResource("1_sitq3")
+texture_progress = ExtResource("2_hq8lm")

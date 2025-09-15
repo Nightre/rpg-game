@@ -17,12 +17,11 @@ offset_right = 336.0
 offset_bottom = 336.0
 
 [node name="CtrlInventoryGrid" type="Control" parent="Panel" node_paths=PackedStringArray("inventory")]
-custom_minimum_size = Vector2(320, 320)
 anchors_preset = 0
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 328.0
-offset_bottom = 328.0
+offset_right = 8.0
+offset_bottom = 8.0
 script = ExtResource("4_kpipp")
 inventory = NodePath("../../Inventory")
 metadata/_custom_type_script = "uid://d0pfc3q6sof8y"
@@ -30,21 +29,8 @@ metadata/_custom_type_script = "uid://d0pfc3q6sof8y"
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("1_fb012")
 protoset = ExtResource("2_kpipp")
-_serialized_format = {
-"constraints": {
-"res://addons/gloot/core/constraints/grid_constraint.gd": {
-"data": {
-"item_positions": {},
-"size": "Vector2i(10, 10)"
-},
-"name": &"GridConstraint"
-}
-},
-"node_name": "Inventory",
-"protoset": "res://data/item.json"
-}
+_serialized_format = {}
 metadata/_custom_type_script = "uid://5hfig5q3x8it"
 
 [node name="GridConstraint" type="Node" parent="Inventory"]
 script = ExtResource("3_jj3rf")
-metadata/_custom_type_script = "uid://b8hbvp4kl88cn"

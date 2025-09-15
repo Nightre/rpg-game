@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c686wl0xky7ae"]
+[gd_scene load_steps=7 format=3 uid="uid://c686wl0xky7ae"]
 
 [ext_resource type="PackedScene" uid="uid://blui3toxsmxdj" path="res://scene/Entity.tscn" id="1_fvtld"]
-[ext_resource type="Script" uid="uid://454wry2p1hcl" path="res://player.gd" id="2_ct4mp"]
+[ext_resource type="Script" uid="uid://454wry2p1hcl" path="res://scene/player.gd" id="2_ct4mp"]
 [ext_resource type="Script" uid="uid://bngfb25vpqcx1" path="res://scene/action.gd" id="3_fvtld"]
+[ext_resource type="Script" uid="uid://mncgx7t5515b" path="res://scene/temperature_manager.gd" id="4_ct4mp"]
+[ext_resource type="Script" uid="uid://etwb42mxrpn8" path="res://scene/player_info_manager.gd" id="5_s4jxa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjaqi"]
 radius = 32.0
@@ -19,5 +21,12 @@ script = ExtResource("3_fvtld")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Action" index="0"]
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_hjaqi")
+
+[node name="TemperatureManager" type="Node2D" parent="." index="3" node_paths=PackedStringArray("player")]
+script = ExtResource("4_ct4mp")
+player = NodePath("..")
+
+[node name="PlayerInfo" type="Node" parent="." index="4"]
+script = ExtResource("5_s4jxa")
 
 [connection signal="area_exited" from="Action" to="Action" method="_on_area_exited"]
