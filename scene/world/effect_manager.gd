@@ -5,9 +5,6 @@ var effects: Dictionary[String, Dictionary] = {}
 
 @export var gui_container: VBoxContainer
 
-func _ready() -> void:
-	pass#give_effect("speed")
-
 func give_effect(id: String) -> void:
 	if id in Data.effect:
 		var effect_data = Data.effect[id]

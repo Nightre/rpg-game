@@ -9,7 +9,7 @@
 "style": ""
 },
 &"default_portrait": "Default",
-&"description": "",
+&"description": "一个聪明一个聪明一个聪明一个聪明一个聪明一个聪明",
 &"display_name": "人",
 &"mirror": false,
 &"nicknames": ["人"],
@@ -19,9 +19,10 @@
 "export_overrides": {
 "image": "\"res://assets/image/character/ren_image.png\""
 },
+"ignore_char_scale": false,
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1,
+"scale": 0.5,
 "scene": ""
 }
 },

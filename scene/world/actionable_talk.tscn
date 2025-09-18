@@ -6,9 +6,3 @@
 [node name="ActionableTalk" instance=ExtResource("1_cagwa")]
 script = ExtResource("2_fp0ry")
 timeline = ""
-
-[node name="ActionTip" parent="." index="1"]
-z_index = 1
-
-[node name="ProgressBar" parent="." index="2"]
-z_index = 1

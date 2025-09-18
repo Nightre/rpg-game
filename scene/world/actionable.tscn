@@ -16,9 +16,13 @@ script = ExtResource("1_0siw6")
 shape = SubResource("CircleShape2D_6wbtw")
 
 [node name="ActionTip" parent="." instance=ExtResource("2_keqr2")]
+z_index = 1
+z_as_relative = false
 position = Vector2(0, -32)
 
 [node name="ProgressBar" parent="." instance=ExtResource("3_1wjv5")]
+z_index = 1
+z_as_relative = false
 offset_left = -24.0
 offset_top = -40.0
 offset_right = 24.0

@@ -1,8 +1,15 @@
-join character center
-character: 你好，我是人
-character: 你在干嘛
-- 我在吃饭
-	给我吃点
-- 我在散步
-	这里不许散步
-再见，我是人我是人我一个疯子。1111111111哈哈哈
+join character left
+
+if Global.is_quest_completed("get_kunkun"):
+	character: 感谢你帮我找鸡哥。
+elif Global.is_quest_accepted("get_kunkun"):
+	character: 找到鸡哥了吗？
+else:
+	character: 你好，我是人
+	character: 我找鸡哥，你帮我找不？
+	character: 再见
+	- ok，我帮你找
+		do Global.add_quset("get_kunkun")
+		character: 感谢
+	- 我才不帮你哼
+		character: 气死我了

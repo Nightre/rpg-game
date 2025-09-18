@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://unnlws67bb4h"]
+
+[ext_resource type="Script" uid="uid://d1key8hcn7xmm" path="res://buildable.gd" id="1_ip67h"]
+
+[node name="Buildable" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ip67h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="PlaceArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlaceArea2D"]
+
+[connection signal="body_entered" from="PlaceArea2D" to="." method="_on_place_area_2d_body_entered"]
+[connection signal="body_exited" from="PlaceArea2D" to="." method="_on_place_area_2d_body_exited"]

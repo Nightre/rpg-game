@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://damck5rwb8hy2"]
+
+[ext_resource type="Script" uid="uid://jdqdnib6rwq4" path="res://scene/world/holdable.gd" id="1_nd73u"]
+[ext_resource type="Texture2D" uid="uid://33bujfnotyly" path="res://assets/image/weapon/weapon_sword.png" id="2_ujoy6"]
+
+[node name="Holdable" type="Node2D"]
+script = ExtResource("1_nd73u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ujoy6")
+offset = Vector2(24, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

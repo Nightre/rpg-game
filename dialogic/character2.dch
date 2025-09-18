@@ -8,16 +8,16 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "New portrait",
+&"default_portrait": "Default",
 &"description": "",
-&"display_name": "character2",
+&"display_name": "鸡哥",
 &"mirror": false,
-&"nicknames": [""],
+&"nicknames": ["鸡哥"],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"New portrait": {
+"Default": {
 "export_overrides": {
-"image": ""
+"image": "\"res://assets/image/character/jige.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

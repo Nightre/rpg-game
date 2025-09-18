@@ -9,15 +9,26 @@ class_name CompositeButton extends Button
 @export var composite:CompositeData
 
 func _ready() -> void:
-	var output_item = inventory.create_item(composite.output)
-	texture_rect.texture = output_item.get_texture()
-	label.text = output_item.get_title()
+	match composite.output:
+		"coin":
+			texture_rect.texture = Compositer.SPECIAL_ITEM[composite.output]["image"]
+			label.text =  Compositer.SPECIAL_ITEM[composite.output]["name"]
+		_:
+			var output_item = inventory.create_item(composite.output)
+			texture_rect.texture = output_item.get_texture()
+			label.text = output_item.get_title()
+			
+	if composite.output_num > 1:
+		label.text += '*' +str(composite.output_num)
 	
 	for material_item_id in composite.input:
-		var item = inventory.create_item(material_item_id)
-		
 		var texture = TextureRect.new()
-		texture.texture = item.get_texture()
+		match material_item_id:
+			"coin":
+				texture.texture = Compositer.SPECIAL_ITEM[material_item_id]["image"]
+			_:
+				var item = inventory.create_item(material_item_id)
+				texture.texture = item.get_texture()
 		
 		var num_label = Label.new()
 		num_label.text = '*'+str(composite.input[material_item_id])

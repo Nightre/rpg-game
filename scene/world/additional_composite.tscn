@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck4hjghf6l4lj"]
+
+[ext_resource type="Script" uid="uid://di12pi0rkpco4" path="res://additional_composite.gd" id="1_ipqbt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijxwj"]
+radius = 8.0
+
+[node name="AdditionalComposite" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ipqbt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ijxwj")

@@ -1,72 +1,149 @@
-[gd_scene load_steps=4 format=3 uid="uid://dauffcd3hs3jn"]
+[gd_scene load_steps=5 format=3 uid="uid://dauffcd3hs3jn"]
 
 [ext_resource type="PackedScene" uid="uid://b60b11r8vecb5" path="res://scene/world/world.tscn" id="1_5kiuu"]
 [ext_resource type="Script" uid="uid://b8hrmfby7sty4" path="res://scene/world/game.gd" id="1_dbls1"]
 [ext_resource type="PackedScene" uid="uid://bjjqtu4nvm3vx" path="res://scene/ui/hud.tscn" id="3_33cqm"]
+[ext_resource type="Script" uid="uid://b8hbvp4kl88cn" path="res://addons/gloot/core/constraints/grid_constraint.gd" id="4_lvtoo"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_dbls1")
 
 [node name="World" parent="." instance=ExtResource("1_5kiuu")]
 
-[node name="Pickable" parent="World/Map/TileMapLayer2" index="1" node_paths=PackedStringArray("inventory")]
+[node name="Pickable" parent="World/Map/TileMapLayer2" index="0" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable2" parent="World/Map/TileMapLayer2" index="2" node_paths=PackedStringArray("inventory")]
+[node name="Pickable2" parent="World/Map/TileMapLayer2" index="1" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable10" parent="World/Map/TileMapLayer2" index="3" node_paths=PackedStringArray("inventory")]
+[node name="Pickable10" parent="World/Map/TileMapLayer2" index="2" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable11" parent="World/Map/TileMapLayer2" index="4" node_paths=PackedStringArray("inventory")]
+[node name="Pickable11" parent="World/Map/TileMapLayer2" index="3" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable12" parent="World/Map/TileMapLayer2" index="5" node_paths=PackedStringArray("inventory")]
+[node name="Pickable12" parent="World/Map/TileMapLayer2" index="4" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable13" parent="World/Map/TileMapLayer2" index="6" node_paths=PackedStringArray("inventory")]
+[node name="Pickable13" parent="World/Map/TileMapLayer2" index="5" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable3" parent="World/Map/TileMapLayer2" index="7" node_paths=PackedStringArray("inventory")]
+[node name="Pickable3" parent="World/Map/TileMapLayer2" index="6" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable4" parent="World/Map/TileMapLayer2" index="8" node_paths=PackedStringArray("inventory")]
+[node name="Pickable4" parent="World/Map/TileMapLayer2" index="7" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable5" parent="World/Map/TileMapLayer2" index="9" node_paths=PackedStringArray("inventory")]
+[node name="Pickable5" parent="World/Map/TileMapLayer2" index="8" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable6" parent="World/Map/TileMapLayer2" index="10" node_paths=PackedStringArray("inventory")]
+[node name="Pickable6" parent="World/Map/TileMapLayer2" index="9" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable7" parent="World/Map/TileMapLayer2" index="11" node_paths=PackedStringArray("inventory")]
+[node name="Pickable7" parent="World/Map/TileMapLayer2" index="10" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable8" parent="World/Map/TileMapLayer2" index="12" node_paths=PackedStringArray("inventory")]
+[node name="Pickable8" parent="World/Map/TileMapLayer2" index="11" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="Pickable9" parent="World/Map/TileMapLayer2" index="13" node_paths=PackedStringArray("inventory")]
+[node name="Pickable9" parent="World/Map/TileMapLayer2" index="12" node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
 
-[node name="EffectManager" parent="World/Map/TileMapLayer2/Player" index="5" node_paths=PackedStringArray("gui_container")]
+[node name="AdditionalCompositeArea" parent="World/Map/TileMapLayer2/Player" index="4" node_paths=PackedStringArray("compositer")]
+compositer = NodePath("../../../../../CanvasLayer/HUD/InventoryContainer/Inventory/Compositer")
+
+[node name="EffectManager" parent="World/Map/TileMapLayer2/Player" index="7" node_paths=PackedStringArray("gui_container")]
 gui_container = NodePath("../../../../../CanvasLayer/HUD/VBoxContainer")
+
+[node name="HeldItemManager" parent="World/Map/TileMapLayer2/Player" index="9" node_paths=PackedStringArray("compositer")]
+compositer = NodePath("../../../../../CanvasLayer/HUD/InventoryContainer/Inventory/Compositer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_33cqm")]
 
-[node name="ItemInfoPanel" parent="CanvasLayer/HUD/InventoryContainer/Inventory/Panel/HBoxContainer" index="1" node_paths=PackedStringArray("eat_manager")]
+[node name="PlayerInfo" parent="CanvasLayer/HUD" index="0" node_paths=PackedStringArray("player_info")]
+player_info = NodePath("../../../World/Map/TileMapLayer2/Player/PlayerInfo")
+
+[node name="ItemInfoPanel" parent="CanvasLayer/HUD/InventoryContainer/Inventory/Panel/HBoxContainer" index="1" node_paths=PackedStringArray("build_manager", "eat_manager")]
+build_manager = NodePath("../../../../../../../World/BuildManager")
 eat_manager = NodePath("../../../../../../../World/Map/TileMapLayer2/Player/EatManager")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 1016.0
-offset_top = 8.0
-offset_right = 1148.0
-offset_bottom = 31.0
-text = "ASWD走路，J交互"
+[node name="InventoryData" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="1"]
+_serialized_format = {
+"constraints": {
+"res://addons/gloot/core/constraints/grid_constraint.gd": {
+"data": {
+"item_positions": {
+"1": "Vector2i(0, 1)",
+"2": "Vector2i(0, 2)",
+"3": "Vector2i(0, 3)",
+"4": "Vector2i(0, 4)",
+"5": "Vector2i(0, 5)",
+"6": "Vector2i(0, 6)",
+"7": "Vector2i(0, 7)",
+"8": "Vector2i(1, 0)",
+"9": "Vector2i(1, 1)"
+},
+"size": "Vector2i(10, 8)"
+},
+"name": &"GridConstraint"
+}
+},
+"items": [{
+"protoset": "res://data/item.json",
+"prototype_id": "bow"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "sword"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "fireball_launcher"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "arrow"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "arrow"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "arrow"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "arrow"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "arrow"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "dress"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "home"
+}],
+"node_name": "InventoryData",
+"protoset": "res://data/item.json"
+}
+
+[node name="GridConstraint" type="Node" parent="CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData" index="0"]
+script = ExtResource("4_lvtoo")
+size = Vector2i(10, 8)
+
+[node name="Compositer" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="5" node_paths=PackedStringArray("additional_composite", "player_info")]
+additional_composite = NodePath("../../../../../World/Map/TileMapLayer2/Player/AdditionalCompositeArea")
+player_info = NodePath("../../../../../World/Map/TileMapLayer2/Player/PlayerInfo")
+
+[node name="PickManager" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="6" node_paths=PackedStringArray("map", "player")]
+map = NodePath("../../../../../World/Map")
+player = NodePath("../../../../../World/Map/TileMapLayer2/Player")
+
+[node name="EquipmentManager" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="7" node_paths=PackedStringArray("hand_manager")]
+hand_manager = NodePath("../../../../../World/Map/TileMapLayer2/Player/HeldItemManager")
 
 [connection signal="hp_changed" from="World/Map/TileMapLayer2/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_hp_changed"]
+[connection signal="money_changed" from="World/Map/TileMapLayer2/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_money_changed"]
 [connection signal="temperature_changed" from="World/Map/TileMapLayer2/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_temperature_changed"]
+[connection signal="building_selected" from="World/BuildManager" to="CanvasLayer/HUD" method="_on_build_manager_building_selected"]
 
 [editable path="World"]
 [editable path="World/Map/TileMapLayer2/Pickable4"]
@@ -79,3 +156,4 @@ text = "ASWD走路，J交互"
 [editable path="CanvasLayer/HUD"]
 [editable path="CanvasLayer/HUD/PlayerInfo"]
 [editable path="CanvasLayer/HUD/InventoryContainer/Inventory"]
+[editable path="CanvasLayer/HUD/Quest"]

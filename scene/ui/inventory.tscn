@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b20t5ok76v2pi"]
+[gd_scene load_steps=17 format=3 uid="uid://b20t5ok76v2pi"]
 
 [ext_resource type="Script" uid="uid://5hfig5q3x8it" path="res://addons/gloot/core/inventory.gd" id="1_fb012"]
 [ext_resource type="Script" uid="uid://duu77wcwik83s" path="res://scene/ui/inventory.gd" id="1_jj3rf"]
@@ -6,7 +6,18 @@
 [ext_resource type="Script" uid="uid://b8hbvp4kl88cn" path="res://addons/gloot/core/constraints/grid_constraint.gd" id="3_jj3rf"]
 [ext_resource type="Script" uid="uid://cno84yuq4c7nh" path="res://scene/ui/item_info_panel.gd" id="3_u7j7x"]
 [ext_resource type="Script" uid="uid://d0pfc3q6sof8y" path="res://addons/gloot/ui/ctrl_inventory_grid.gd" id="4_kpipp"]
+[ext_resource type="Script" uid="uid://trghhrgo3fax" path="res://addons/gloot/ui/ctrl_item_slot.gd" id="7_4frhu"]
+[ext_resource type="Script" uid="uid://ik1tvqlhy405" path="res://scene/ui/pick_manager.gd" id="8_kbp00"]
+[ext_resource type="Script" uid="uid://c6wangdtwc4m7" path="res://addons/gloot/core/item_slot.gd" id="8_pr53l"]
+[ext_resource type="Script" uid="uid://bnqibdc8ilwl7" path="res://scene/ui/equipment_item_slot.gd" id="8_rxyrd"]
+[ext_resource type="Texture2D" uid="uid://7re18588p8y5" path="res://assets/image/gui/gui_armor.png" id="9_bej3n"]
 [ext_resource type="Script" uid="uid://cqxfh230qkyyw" path="res://scene/ui/compositer.gd" id="9_c62h7"]
+[ext_resource type="Script" uid="uid://lckf0x84fc0" path="res://scene/ui/inventory_tab_bar.gd" id="11_pr53l"]
+[ext_resource type="Script" uid="uid://cn83mgh1hcorb" path="res://scene/ui/equipment_manager.gd" id="12_rxyrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxyrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bej3n"]
 
 [node name="Inventory" type="Control"]
 custom_minimum_size = Vector2(536, 376)
@@ -33,7 +44,6 @@ inventory = NodePath("../../../InventoryData")
 metadata/_custom_type_script = "uid://d0pfc3q6sof8y"
 
 [node name="ItemInfoPanel" type="Panel" parent="Panel/HBoxContainer" node_paths=PackedStringArray("inventory")]
-visible = false
 custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 script = ExtResource("3_u7j7x")
@@ -45,18 +55,6 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 56.0
 offset_bottom = 56.0
-
-[node name="EatButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -40.0
-offset_right = 56.0
-offset_bottom = -9.0
-grow_vertical = 0
-text = "食用"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/ItemInfoPanel"]
 layout_mode = 0
@@ -73,6 +71,42 @@ offset_right = 96.0
 offset_bottom = 31.0
 text = "土豆"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/ItemInfoPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -48.0
+offset_right = 92.0
+offset_bottom = -8.0
+grow_vertical = 0
+
+[node name="DiscardButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "丢弃"
+
+[node name="EatButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "食用"
+
+[node name="EquipmentButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "装备"
+
+[node name="BuildButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "放置
+"
+
 [node name="InventoryData" type="Node" parent="."]
 script = ExtResource("1_fb012")
 protoset = ExtResource("2_kpipp")
@@ -84,18 +118,12 @@ script = ExtResource("3_jj3rf")
 size = Vector2i(10, 8)
 
 [node name="Composite" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 328.0
+offset_top = 32.0
 offset_right = 536.0
 offset_bottom = 376.0
-
-[node name="Label" type="Label" parent="Composite"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 48.0
-offset_bottom = 31.0
-text = "合成"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Composite"]
 layout_mode = 1
@@ -103,19 +131,133 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
-offset_top = 40.0
+offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Equipment" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 32.0
+offset_right = 536.0
+offset_bottom = 376.0
+
+[node name="CtrlItemSlot" type="Control" parent="Equipment" node_paths=PackedStringArray("item_slot")]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 48.0
+offset_bottom = 80.0
+script = ExtResource("7_4frhu")
+item_slot = NodePath("../EquipmentItemSlot")
+slot_style = SubResource("StyleBoxFlat_rxyrd")
+metadata/_custom_type_script = "uid://trghhrgo3fax"
+
+[node name="EquipmentItemSlot" type="Node" parent="Equipment"]
+script = ExtResource("8_rxyrd")
+protoset = ExtResource("2_kpipp")
+metadata/_custom_type_script = "uid://c6wangdtwc4m7"
+
+[node name="GuiArmor" type="Sprite2D" parent="Equipment"]
+position = Vector2(96, 192)
+texture = ExtResource("9_bej3n")
+
+[node name="Label" type="Label" parent="Equipment"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 31.0
+text = "手持装备"
+
+[node name="Label2" type="Label" parent="Equipment"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 72.0
+offset_bottom = 111.0
+text = "盔甲（盔甲还没做）"
+
+[node name="ItemSlot" type="Node" parent="Equipment"]
+script = ExtResource("8_pr53l")
+protoset = ExtResource("2_kpipp")
+metadata/_custom_type_script = "uid://c6wangdtwc4m7"
+
+[node name="ItemSlot2" type="Node" parent="Equipment"]
+script = ExtResource("8_pr53l")
+protoset = ExtResource("2_kpipp")
+metadata/_custom_type_script = "uid://c6wangdtwc4m7"
+
+[node name="ItemSlot3" type="Node" parent="Equipment"]
+script = ExtResource("8_pr53l")
+protoset = ExtResource("2_kpipp")
+metadata/_custom_type_script = "uid://c6wangdtwc4m7"
+
+[node name="CtrlItemSlot2" type="Control" parent="Equipment" node_paths=PackedStringArray("item_slot")]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 120.0
+offset_right = 48.0
+offset_bottom = 160.0
+script = ExtResource("7_4frhu")
+item_slot = NodePath("../ItemSlot")
+slot_style = SubResource("StyleBoxFlat_bej3n")
+metadata/_custom_type_script = "uid://trghhrgo3fax"
+
+[node name="CtrlItemSlot3" type="Control" parent="Equipment" node_paths=PackedStringArray("item_slot")]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 168.0
+offset_right = 48.0
+offset_bottom = 208.0
+script = ExtResource("7_4frhu")
+item_slot = NodePath("../ItemSlot2")
+slot_style = SubResource("StyleBoxFlat_bej3n")
+metadata/_custom_type_script = "uid://trghhrgo3fax"
+
+[node name="CtrlItemSlot4" type="Control" parent="Equipment" node_paths=PackedStringArray("item_slot")]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 216.0
+offset_right = 48.0
+offset_bottom = 256.0
+script = ExtResource("7_4frhu")
+item_slot = NodePath("../ItemSlot3")
+slot_style = SubResource("StyleBoxFlat_bej3n")
+metadata/_custom_type_script = "uid://trghhrgo3fax"
+
+[node name="TabBar" type="TabBar" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_right = 536.0
+offset_bottom = 16.0
+current_tab = 0
+tab_count = 2
+tab_0/title = "装备"
+tab_1/title = "合成"
+script = ExtResource("11_pr53l")
 
 [node name="Compositer" type="Node" parent="." node_paths=PackedStringArray("inventory", "container")]
 script = ExtResource("9_c62h7")
 inventory = NodePath("../InventoryData")
 container = NodePath("../Composite/VBoxContainer")
 
+[node name="PickManager" type="Node" parent="."]
+script = ExtResource("8_kbp00")
+
+[node name="EquipmentManager" type="Node" parent="."]
+script = ExtResource("12_rxyrd")
+
 [connection signal="inventory_item_selected" from="Panel/HBoxContainer/CtrlInventoryGrid" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_ctrl_inventory_grid_inventory_item_selected"]
-[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/EatButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_eat_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/DiscardButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_discard_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/EatButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_eat_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/EquipmentButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_equipment_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/BuildButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_build_button_pressed"]
 [connection signal="item_added" from="InventoryData" to="Compositer" method="_on_inventory_data_item_added"]
 [connection signal="item_removed" from="InventoryData" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_inventory_data_item_removed"]
 [connection signal="item_removed" from="InventoryData" to="Compositer" method="_on_inventory_data_item_removed"]
+[connection signal="cleared" from="Equipment/EquipmentItemSlot" to="EquipmentManager" method="_on_equipment_item_slot_cleared"]
+[connection signal="item_equipped" from="Equipment/EquipmentItemSlot" to="EquipmentManager" method="_on_equipment_item_slot_item_equipped"]
+[connection signal="tab_changed" from="TabBar" to="TabBar" method="_on_tab_changed"]

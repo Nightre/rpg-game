@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1cajio6xp6v2"]
+
+[ext_resource type="PackedScene" uid="uid://cbvbtx3we60g5" path="res://scene/world/drop_item.tscn" id="1_8kene"]
+[ext_resource type="Script" uid="uid://dg50beemvhdcf" path="res://scene/world/drop_coin.gd" id="2_npdcl"]
+[ext_resource type="Texture2D" uid="uid://b4uw7ilx5f1re" path="res://assets/image/item/item_coin.png" id="3_npdcl"]
+
+[node name="DropCoin" instance=ExtResource("1_8kene")]
+script = ExtResource("2_npdcl")
+num = 1
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_npdcl")

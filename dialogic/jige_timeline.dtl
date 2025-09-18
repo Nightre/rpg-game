@@ -1,0 +1,8 @@
+join character2 left
+character2: 哎哟，你干嘛?
+if Global.is_quest_accepted("get_kunkun"):
+	有人找你鸡哥
+	do Global.complete_quest("get_kunkun")
+	character2: OK呀，谢谢你
+else:
+	不干嘛

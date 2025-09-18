@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://unhgcn51vn1d"]
+
+[ext_resource type="Script" uid="uid://m5ej78kvh28x" path="res://quest_info.gd" id="1_130uh"]
+
+[node name="QuestInfo" type="Button"]
+custom_minimum_size = Vector2(200, 32)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_130uh")
+
+[node name="Window" type="Popup" parent="."]
+initial_position = 1
+size = Vector2i(300, 200)
+wrap_controls = false
+borderless = false
+
+[node name="Label" type="Label" parent="Window"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -13,3 +13,6 @@ func set_open_inventory(new_open_inventory):
 	open_inventory = new_open_inventory
 	inventory_container.visible = open_inventory
 	inventory.open()
+
+func _on_build_manager_building_selected(item: InventoryItem) -> void:
+	set_open_inventory(false)

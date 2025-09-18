@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy75saaj5pqg1"]
+
+[ext_resource type="PackedScene" uid="uid://cbvbtx3we60g5" path="res://scene/world/drop_item.tscn" id="1_5bq6m"]
+[ext_resource type="Script" uid="uid://bbhycp37vb7u2" path="res://drop_inventory_item.gd" id="2_p40ox"]
+
+[node name="DropInventoryItem" instance=ExtResource("1_5bq6m")]
+script = ExtResource("2_p40ox")

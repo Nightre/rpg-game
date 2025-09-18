@@ -1,8 +1,177 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjjqtu4nvm3vx"]
+[gd_scene load_steps=21 format=3 uid="uid://bjjqtu4nvm3vx"]
 
 [ext_resource type="Script" uid="uid://cms3aunth6y2s" path="res://scene/ui/hud.gd" id="1_o8u2p"]
 [ext_resource type="PackedScene" uid="uid://b20t5ok76v2pi" path="res://scene/ui/inventory.tscn" id="1_s3k51"]
 [ext_resource type="PackedScene" uid="uid://dremjs4mrtcjt" path="res://scene/ui/player_info.tscn" id="3_pvgpj"]
+[ext_resource type="Texture2D" uid="uid://bfqnrevjmoeq2" path="res://assets/image/gui/mobile_action.png" id="5_gll67"]
+[ext_resource type="Texture2D" uid="uid://uigsgsqvqeo8" path="res://assets/image/gui/mobile_action_pressed.png" id="6_t0n4l"]
+[ext_resource type="Texture2D" uid="uid://fjv3s3oybkq6" path="res://assets/image/gui/mobile_inventory.png" id="7_g5rf0"]
+[ext_resource type="Texture2D" uid="uid://dmyoq3fwfke1x" path="res://assets/image/gui/mobile_inventory_pressed.png" id="8_aeo18"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="8_gll67"]
+[ext_resource type="PackedScene" uid="uid://bgbc1hc0mv2x" path="res://scene/ui/quest.tscn" id="9_t0n4l"]
+[ext_resource type="Script" uid="uid://duy2w27go67hc" path="res://scene/ui/quest_complete.gd" id="10_g5rf0"]
+[ext_resource type="Script" uid="uid://crjkfiw0h4ht7" path="res://scene/ui/change_level.gd" id="11_aeo18"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aeo18"]
+line_spacing = 30.0
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_llivb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_onxnr"]
+resource_name = "show"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wtm7s"]
+_data = {
+&"RESET": SubResource("Animation_llivb"),
+&"show": SubResource("Animation_onxnr")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5rf0"]
+font_size = 64
+
+[sub_resource type="Animation" id="Animation_wtm7s"]
+resource_name = "show"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6fek2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3tp2r"]
+resource_name = "hide"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_umk68"]
+_data = {
+&"RESET": SubResource("Animation_6fek2"),
+&"hide": SubResource("Animation_3tp2r"),
+&"show": SubResource("Animation_wtm7s")
+}
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -39,3 +208,125 @@ offset_left = 16.0
 offset_top = 80.0
 offset_right = 56.0
 offset_bottom = 120.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ActionTouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(-184, -184)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("5_gll67")
+texture_pressed = ExtResource("6_t0n4l")
+action = "action"
+visibility_mode = 1
+
+[node name="InventoryTouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(-88, -80)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("7_g5rf0")
+texture_pressed = ExtResource("8_aeo18")
+action = "inventory"
+visibility_mode = 1
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("8_gll67")]
+layout_mode = 1
+offset_left = 32.0
+offset_top = -328.0
+offset_right = 332.0
+offset_bottom = -28.0
+visibility_mode = 1
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"
+
+[node name="Quest" parent="." instance=ExtResource("9_t0n4l")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_right = 0.0
+offset_bottom = 408.0
+grow_horizontal = 0
+
+[node name="QuestComplete" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 104.0
+offset_bottom = 192.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.423529)
+script = ExtResource("10_g5rf0")
+
+[node name="Label" type="Label" parent="QuestComplete"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "完成任务"
+label_settings = SubResource("LabelSettings_aeo18")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="QuestComplete"]
+libraries = {
+&"": SubResource("AnimationLibrary_wtm7s")
+}
+
+[node name="ChangeLevel" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("11_aeo18")
+
+[node name="LevelLabel" type="Label" parent="ChangeLevel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "庇护所"
+label_settings = SubResource("LabelSettings_g5rf0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ChangeLevel"]
+libraries = {
+&"": SubResource("AnimationLibrary_umk68")
+}
+
+[connection signal="quest_accepted" from="Quest/QuestManager" to="QuestComplete" method="_on_quest_manager_quest_accepted"]
+[connection signal="quest_completed" from="Quest/QuestManager" to="QuestComplete" method="_on_quest_manager_quest_completed"]
+
+[editable path="Quest"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dremjs4mrtcjt"]
+[gd_scene load_steps=6 format=3 uid="uid://dremjs4mrtcjt"]
 
 [ext_resource type="Script" uid="uid://blq385sf7w5xf" path="res://scene/ui/player_info_hud.gd" id="1_dial1"]
 [ext_resource type="PackedScene" uid="uid://duwij3rt1d34w" path="res://scene/ui/progress_bar.tscn" id="1_u4y16"]
 [ext_resource type="Texture2D" uid="uid://xreexms54vtm" path="res://assets/image/gui/gui_frozen.png" id="2_evwoe"]
 [ext_resource type="Texture2D" uid="uid://cpsyt75qf6ul4" path="res://assets/image/gui/gui_hp_progress_over.png" id="2_j1r1n"]
+[ext_resource type="Texture2D" uid="uid://b4uw7ilx5f1re" path="res://assets/image/item/item_coin.png" id="5_8trof"]
 
 [node name="PlayerInfo" type="Control"]
 layout_mode = 3
@@ -23,6 +24,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_evwoe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 168.0
+offset_bottom = 112.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -49,3 +55,20 @@ offset_top = 48.0
 offset_right = 53.0
 offset_bottom = 71.0
 text = "温度: 26°"
+
+[node name="MoneyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 72.0
+offset_right = 80.0
+offset_bottom = 95.0
+text = "1000"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 48.0
+offset_bottom = 104.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_8trof")

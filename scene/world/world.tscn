@@ -1,12 +1,19 @@
-[gd_scene load_steps=10 format=4 uid="uid://b60b11r8vecb5"]
+[gd_scene load_steps=20 format=4 uid="uid://b60b11r8vecb5"]
 
 [ext_resource type="PackedScene" uid="uid://c686wl0xky7ae" path="res://scene/world/player.tscn" id="1_pjass"]
 [ext_resource type="Texture2D" uid="uid://dgpvyp53dg3bf" path="res://assets/image/map/tileset.png" id="1_txmk2"]
 [ext_resource type="Script" uid="uid://uid0tkjte5mv" path="res://scene/world/world.gd" id="1_y3jn2"]
 [ext_resource type="PackedScene" uid="uid://jsxi1qr0ppqc" path="res://scene/world/pickable.tscn" id="3_0tg4p"]
 [ext_resource type="PackedScene" uid="uid://fvediodhnkl6" path="res://scene/world/actionable_talk.tscn" id="5_emkrx"]
+[ext_resource type="Texture2D" uid="uid://b4mpsdcooag7e" path="res://assets/image/character/jige.png" id="7_4mi5g"]
 [ext_resource type="Texture2D" uid="uid://ceeomt76h0miv" path="res://assets/image/character/character_ren.png" id="7_hcb8y"]
+[ext_resource type="Texture2D" uid="uid://qdpid2226mkh" path="res://assets/image/character/pharmacist.png" id="7_lpx6o"]
 [ext_resource type="PackedScene" uid="uid://dnkx8hin2s245" path="res://scene/world/temperature.tscn" id="7_se62r"]
+[ext_resource type="PackedScene" uid="uid://ck4hjghf6l4lj" path="res://scene/world/additional_composite.tscn" id="8_4w7m2"]
+[ext_resource type="PackedScene" uid="uid://b1cajio6xp6v2" path="res://scene/world/drop_coin.tscn" id="8_y1ys1"]
+[ext_resource type="Script" uid="uid://bq2a4vkgi5ue7" path="res://script/composite_data.gd" id="9_t7i1g"]
+[ext_resource type="Script" uid="uid://cckjkwkighu5k" path="res://scene/world/build_manager.gd" id="13_lpx6o"]
+[ext_resource type="Script" uid="uid://bw8sljl45s6s3" path="res://scene/world/level_manager.gd" id="14_4w7m2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4qq1"]
 texture = ExtResource("1_txmk2")
@@ -38,6 +45,33 @@ custom_data_layer_0/name = "temperature"
 custom_data_layer_0/type = 3
 sources/0 = SubResource("TileSetAtlasSource_w4qq1")
 
+[sub_resource type="Resource" id="Resource_lpx6o"]
+script = ExtResource("9_t7i1g")
+input = Dictionary[String, int]({
+"item_fruit": 1
+})
+output = "grilled_fruit"
+output_num = 1
+metadata/_custom_type_script = "uid://bq2a4vkgi5ue7"
+
+[sub_resource type="Resource" id="Resource_58eqr"]
+script = ExtResource("9_t7i1g")
+input = Dictionary[String, int]({
+"coin": 3
+})
+output = "item_stone"
+output_num = 1
+metadata/_custom_type_script = "uid://bq2a4vkgi5ue7"
+
+[sub_resource type="Resource" id="Resource_srnbc"]
+script = ExtResource("9_t7i1g")
+input = Dictionary[String, int]({
+"grilled_fruit": 1
+})
+output = "coin"
+output_num = 1
+metadata/_custom_type_script = "uid://bq2a4vkgi5ue7"
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_y3jn2")
 
@@ -51,17 +85,6 @@ tile_set = SubResource("TileSet_m5mgf")
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAaABEAAAACAAAAAAAdABQAAAACAAAAAAAWABIAAAACAAAAAAAaABUAAAACAAAAAAAUABgAAAACAAAAAAATABMAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_m5mgf")
-
-[node name="CharacterRen" type="Sprite2D" parent="Map/TileMapLayer2"]
-y_sort_enabled = true
-position = Vector2(720, 632)
-texture = ExtResource("7_hcb8y")
-offset = Vector2(0, -24)
-
-[node name="ActionableTalk" parent="Map/TileMapLayer2/CharacterRen" instance=ExtResource("5_emkrx")]
-position = Vector2(0, -32)
-timeline = "timeline"
-time = 0.0
 
 [node name="Pickable" parent="Map/TileMapLayer2" instance=ExtResource("3_0tg4p")]
 y_sort_enabled = true
@@ -150,8 +173,11 @@ region_rect = Rect2(32, 32, 32, 32)
 y_sort_enabled = true
 position = Vector2(816, 640)
 
-[node name="TemperatureManager" parent="Map/TileMapLayer2/Player" index="3" node_paths=PackedStringArray("map")]
+[node name="TemperatureManager" parent="Map/TileMapLayer2/Player" index="5" node_paths=PackedStringArray("map")]
 map = NodePath("../../../TileMapLayer")
+
+[node name="PlayerInfo" parent="Map/TileMapLayer2/Player" index="6"]
+money = 0
 
 [node name="Camera2D" type="Camera2D" parent="Map/TileMapLayer2/Player"]
 position = Vector2(0, -24)
@@ -161,13 +187,99 @@ limit_top = 0
 position_smoothing_enabled = true
 
 [node name="Tileset" type="Sprite2D" parent="Map/TileMapLayer2"]
-position = Vector2(936, 680)
+y_sort_enabled = true
+position = Vector2(952, 680)
 texture = ExtResource("1_txmk2")
+offset = Vector2(0, -16)
 region_enabled = true
 region_rect = Rect2(0, 96, 32, 32)
 
 [node name="Temperature" parent="Map/TileMapLayer2/Tileset" instance=ExtResource("7_se62r")]
 temperature = 20.0
+
+[node name="AdditionalComposite2" parent="Map/TileMapLayer2/Tileset" instance=ExtResource("8_4w7m2")]
+title = "篝火"
+composites = Array[ExtResource("9_t7i1g")]([SubResource("Resource_lpx6o")])
+
+[node name="DropCoin" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(704, 840)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="DropCoin2" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(712, 848)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="DropCoin3" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(696, 848)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="DropCoin4" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(688, 840)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="DropCoin5" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(712, 832)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="DropCoin6" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(720, 840)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="DropCoin7" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(704, 840)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="DropCoin8" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(696, 832)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="DropCoin9" parent="Map/TileMapLayer2" node_paths=PackedStringArray("player_info") instance=ExtResource("8_y1ys1")]
+position = Vector2(704, 832)
+player_info = NodePath("../Player/PlayerInfo")
+
+[node name="Pharmacist" type="Sprite2D" parent="Map/TileMapLayer2"]
+position = Vector2(768, 808)
+texture = ExtResource("7_lpx6o")
+
+[node name="AdditionalComposite" parent="Map/TileMapLayer2/Pharmacist" instance=ExtResource("8_4w7m2")]
+title = "商人"
+composites = Array[ExtResource("9_t7i1g")]([SubResource("Resource_58eqr"), SubResource("Resource_srnbc")])
+
+[node name="Label" type="Label" parent="Map/TileMapLayer2/Pharmacist"]
+offset_left = -16.0
+offset_top = -40.0
+offset_right = 24.0
+offset_bottom = -17.0
+text = "商人"
+
+[node name="CharacterRen2" type="Sprite2D" parent="Map/TileMapLayer2"]
+y_sort_enabled = true
+position = Vector2(752, 688)
+texture = ExtResource("7_4mi5g")
+offset = Vector2(0, -24)
+
+[node name="ActionableTalk" parent="Map/TileMapLayer2/CharacterRen2" instance=ExtResource("5_emkrx")]
+position = Vector2(-8, -16)
+timeline = "jige_timeline"
+time = 0.0
+
+[node name="CharacterRen" type="Sprite2D" parent="Map/TileMapLayer2"]
+y_sort_enabled = true
+position = Vector2(720, 624)
+texture = ExtResource("7_hcb8y")
+offset = Vector2(0, -24)
+
+[node name="ActionableTalk" parent="Map/TileMapLayer2/CharacterRen" instance=ExtResource("5_emkrx")]
+position = Vector2(0, -32)
+timeline = "timeline"
+time = 0.0
+
+[node name="BuildManager" type="Node" parent="." node_paths=PackedStringArray("build_parent")]
+script = ExtResource("13_lpx6o")
+build_parent = NodePath("../Map/TileMapLayer2")
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("14_4w7m2")
 
 [editable path="Map/TileMapLayer2/Pickable4"]
 [editable path="Map/TileMapLayer2/Pickable5"]
