@@ -15,7 +15,7 @@ const SPECIAL_ITEM = {
 var is_dirty = false
 
 func _ready() -> void:
-	update_composite_list()
+	call_deferred("update_composite_list")
 
 func get_item_quantity(prototype_id: String) -> int:
 	match prototype_id:

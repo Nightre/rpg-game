@@ -109,12 +109,21 @@
 		"info":"箭",
 	},
 	"home":{
-		"name":"家",
+		"name":"墙壁",
 		"id":"home",
 		"stack_size": 1,
 		"max_stack_size": 24,
 		"image":"res://assets/image/item/item_home.png",
-		"info":"可以建造的家",
+		"info":"可以建造的墙壁",
+		"buildable":true
+	},
+	"light":{
+		"name":"灯",
+		"id":"light",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image":"res://assets/image/item/item_light.png",
+		"info":"可以建造的灯",
 		"buildable":true
 	}
 }

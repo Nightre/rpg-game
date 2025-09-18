@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var map: TileMapLayer
+@export var map: Node2D
 @export var player: Player
 @onready var player_info: PlayerInfo = $"../PlayerInfo"
 @onready var effect_manager: EffectManager = $"../EffectManager"
@@ -23,20 +23,15 @@ func _process(delta: float) -> void:
 		environment_temperature = 26
 		player_info.temperature = environment_temperature
 	else:
-		var coords = map.local_to_map(player.position)
-		var cell = map.get_cell_tile_data(coords)
-		if cell:
-			if cell.get_custom_data("temperature"):
-				add_environment_temperature(cell.get_custom_data("temperature"))
+		# 只检测 group "temperature" 的节点
 		var temperatures = get_tree().get_nodes_in_group("temperature")
-		
 		for temp_source in temperatures:
 			var distance = player.position.distance_to(temp_source.global_position)
 			if distance <= RANGE:
 				add_environment_temperature(temp_source.temperature)
 	
 	var temperature_diff = environment_temperature - player_info.temperature
-	player_info.temperature += temperature_diff / 3 * delta # 3 秒
+	player_info.temperature += temperature_diff / 3 * delta # 3 秒内缓和到环境温度
 	
 	player_info.temperature = clamp(player_info.temperature, MIN_TEMPERATURE, MAX_TEMPERATURE)
 	if player_info.temperature < TEMPERATURE_DAMAGE_THRESHOLD:

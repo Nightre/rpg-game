@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjjqtu4nvm3vx"]
+[gd_scene load_steps=20 format=3 uid="uid://bjjqtu4nvm3vx"]
 
 [ext_resource type="Script" uid="uid://cms3aunth6y2s" path="res://scene/ui/hud.gd" id="1_o8u2p"]
 [ext_resource type="PackedScene" uid="uid://b20t5ok76v2pi" path="res://scene/ui/inventory.tscn" id="1_s3k51"]
@@ -77,9 +77,6 @@ _data = {
 &"RESET": SubResource("Animation_llivb"),
 &"show": SubResource("Animation_onxnr")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_g5rf0"]
-font_size = 64
 
 [sub_resource type="Animation" id="Animation_wtm7s"]
 resource_name = "show"
@@ -204,10 +201,9 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 80.0
-offset_right = 56.0
-offset_bottom = 120.0
+offset_top = 120.0
+offset_right = 40.0
+offset_bottom = 160.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -304,22 +300,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("11_aeo18")
-
-[node name="LevelLabel" type="Label" parent="ChangeLevel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "庇护所"
-label_settings = SubResource("LabelSettings_g5rf0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ChangeLevel"]
 libraries = {

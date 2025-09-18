@@ -1,6 +1,7 @@
 extends Node
 
 var current_game:Game
+var level_manager:LevelManager
 
 func add_quset(id):
 	current_game.quest_manager.add_quest(id)

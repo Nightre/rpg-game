@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cugjn1u3jycay"]
+
+[ext_resource type="PackedScene" uid="uid://unnlws67bb4h" path="res://scene/world/buildable.tscn" id="1_iisy1"]
+[ext_resource type="Texture2D" uid="uid://dbgc8drxet7y1" path="res://assets/image/buildable/light.png" id="2_kw8x5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_huwa6"]
+radius = 16.0
+
+[node name="Buildable" instance=ExtResource("1_iisy1")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kw8x5")
+offset = Vector2(0, -64)
+
+[node name="CollisionShape2D2" parent="PlaceArea2D" index="0"]
+shape = SubResource("CircleShape2D_huwa6")

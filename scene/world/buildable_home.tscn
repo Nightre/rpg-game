@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://55fk2w17biu2"]
+[gd_scene load_steps=4 format=3 uid="uid://55fk2w17biu2"]
 
 [ext_resource type="PackedScene" uid="uid://unnlws67bb4h" path="res://scene/world/buildable.tscn" id="1_6t2bi"]
 [ext_resource type="Texture2D" uid="uid://0wfqv6rate1" path="res://assets/image/buildable/buildable_home.png" id="2_cbody"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t2bi"]
-size = Vector2(50, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbody"]
 size = Vector2(32, 5)
@@ -16,10 +13,6 @@ y_sort_enabled = true
 position = Vector2(0, 24)
 texture = ExtResource("2_cbody")
 offset = Vector2(0, -24)
-
-[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(-1, 21.5)
-shape = SubResource("RectangleShape2D_6t2bi")
 
 [node name="CollisionShape2D2" parent="PlaceArea2D" index="0"]
 position = Vector2(0, 21.5)

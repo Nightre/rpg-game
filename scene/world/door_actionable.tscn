@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu5k6bc1f2aou"]
+
+[ext_resource type="PackedScene" uid="uid://c2wq50yf2xw2b" path="res://scene/world/actionable.tscn" id="1_5net2"]
+[ext_resource type="Script" uid="uid://bdy61m7xenkpb" path="res://door_actionable.gd" id="2_wno2k"]
+
+[node name="DoorActionable" instance=ExtResource("1_5net2")]
+script = ExtResource("2_wno2k")
+path = ""
+time = 0.3

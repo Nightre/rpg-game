@@ -28,3 +28,12 @@ func _on_place_area_2d_body_entered(body: Node2D) -> void:
 func _on_place_area_2d_body_exited(body: Node2D) -> void:
 	if in_build and len(place_area_2d.get_overlapping_bodies()) == 0:
 		set_can_build(true)
+
+
+func serialize():
+	return {
+		"position":position
+	}
+	
+func deserialize(data):
+	position = data["position"]

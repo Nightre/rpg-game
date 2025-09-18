@@ -47,6 +47,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gloo
 [global_group]
 
 temperature=""
+Buildables=""
 
 [input]
 

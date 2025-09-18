@@ -8,6 +8,9 @@ extends Control
 @onready var money_label: Label = $MoneyLabel
 
 func _ready() -> void:
+	call_deferred("init_info")
+	
+func init_info():
 	_on_player_info_hp_changed(player_info.get_hp())
 	_on_player_info_temperature_changed(player_info.get_temperature())
 	_on_player_info_money_changed(player_info.get_money())
