@@ -125,5 +125,14 @@
 		"image":"res://assets/image/item/item_light.png",
 		"info":"可以建造的灯",
 		"buildable":true
+	},
+	"box":{
+		"name":"箱子",
+		"id":"box",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image":"res://assets/image/item/item_box.png",
+		"info":"可以用来放东西",
+		"buildable":true
 	}
 }

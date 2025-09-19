@@ -7,6 +7,7 @@
 radius = 16.0
 
 [node name="Buildable" instance=ExtResource("1_iisy1")]
+title = "路灯"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_kw8x5")
@@ -14,3 +15,7 @@ offset = Vector2(0, -64)
 
 [node name="CollisionShape2D2" parent="PlaceArea2D" index="0"]
 shape = SubResource("CircleShape2D_huwa6")
+
+[node name="Button" parent="." index="2"]
+offset_top = -120.0
+offset_bottom = 0.0

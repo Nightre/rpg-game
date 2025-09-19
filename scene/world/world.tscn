@@ -11,9 +11,8 @@ script = ExtResource("1_y3jn2")
 [node name="Player" parent="." instance=ExtResource("1_pjass")]
 y_sort_enabled = true
 position = Vector2(816, 640)
-
-[node name="TemperatureManager" parent="Player" index="5" node_paths=PackedStringArray("map")]
-map = NodePath("")
+motion_mode = 0
+wall_min_slide_angle = 0.261799
 
 [node name="PlayerInfo" parent="Player" index="6"]
 money = 0
@@ -35,4 +34,7 @@ script = ExtResource("14_4w7m2")
 keep_node = [NodePath("../Player")]
 init_scene = "res://scene/world/level/level_1.tscn"
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
 [editable path="Player"]
+[editable path="Player/Hurtbox"]

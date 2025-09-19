@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://unnlws67bb4h"]
+[gd_scene load_steps=6 format=3 uid="uid://unnlws67bb4h"]
 
 [ext_resource type="Script" uid="uid://d1key8hcn7xmm" path="res://buildable.gd" id="1_ip67h"]
+[ext_resource type="Texture2D" uid="uid://bafk4rmeqke5k" path="res://assets/image/gui/hover.png" id="2_2d7fx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2d7fx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2d7fx"]
+texture = ExtResource("2_2d7fx")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rged1"]
 
 [node name="Buildable" type="Node2D" groups=["Buildables"]]
 y_sort_enabled = true
@@ -13,5 +25,25 @@ y_sort_enabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PlaceArea2D"]
 
+[node name="Button" type="Button" parent="."]
+z_index = 3
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2d7fx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2d7fx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rged1")
+disabled = true
+
 [connection signal="body_entered" from="PlaceArea2D" to="." method="_on_place_area_2d_body_entered"]
 [connection signal="body_exited" from="PlaceArea2D" to="." method="_on_place_area_2d_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

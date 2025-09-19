@@ -28,3 +28,6 @@ func set_money(value: int) -> void:
 
 func get_money() -> int:
 	return money
+
+func _on_hurtbox_damaged(damage: Variant) -> void:
+	hp = hp - damage

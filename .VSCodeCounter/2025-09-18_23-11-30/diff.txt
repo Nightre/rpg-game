@@ -1,0 +1,207 @@
+Date : 2025-09-18 23:11:30
+Directory : c:\Users\nightscratch\Documents\rpg-game
+Total : 142 files,  5716 codes, 331 comments, 1257 blanks, all 7304 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| GDScript   |         65 |      3,684 |        331 |        837 |      4,852 |
+| GDScene    |         41 |      1,128 |          0 |        251 |      1,379 |
+| GDResource |         27 |        764 |          0 |        152 |        916 |
+| Markdown   |          1 |         67 |          0 |         15 |         82 |
+| JSON       |          1 |         61 |          0 |          0 |         61 |
+| Properties |          1 |          6 |          0 |          2 |          8 |
+| XML        |          6 |          6 |          0 |          0 |          6 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                        |        142 |      5,716 |        331 |      1,257 |      7,304 |
+| . (Files)                                                                                                                |          6 |        167 |          7 |         43 |        217 |
+| addons                                                                                                                   |         70 |      4,126 |        315 |        901 |      5,342 |
+| addons\imjp94.yafsm                                                                                                      |         70 |      4,126 |        315 |        901 |      5,342 |
+| addons\imjp94.yafsm (Files)                                                                                              |          4 |        207 |         11 |         44 |        262 |
+| addons\imjp94.yafsm\assets                                                                                               |         16 |        289 |          0 |         56 |        345 |
+| addons\imjp94.yafsm\assets\fonts                                                                                         |          1 |          4 |          0 |          2 |          6 |
+| addons\imjp94.yafsm\assets\icons                                                                                         |         15 |        285 |          0 |         54 |        339 |
+| addons\imjp94.yafsm\scenes                                                                                               |         34 |      2,678 |        178 |        561 |      3,417 |
+| addons\imjp94.yafsm\scenes (Files)                                                                                       |          7 |        953 |         65 |        140 |      1,158 |
+| addons\imjp94.yafsm\scenes\condition_editors                                                                             |         12 |        358 |          1 |        121 |        480 |
+| addons\imjp94.yafsm\scenes\flowchart                                                                                     |          7 |        830 |        106 |        174 |      1,110 |
+| addons\imjp94.yafsm\scenes\state_nodes                                                                                   |          3 |        142 |          2 |         31 |        175 |
+| addons\imjp94.yafsm\scenes\transition_editors                                                                            |          5 |        395 |          4 |         95 |        494 |
+| addons\imjp94.yafsm\scripts                                                                                              |          1 |         79 |         12 |         13 |        104 |
+| addons\imjp94.yafsm\src                                                                                                  |         15 |        873 |        114 |        227 |      1,214 |
+| addons\imjp94.yafsm\src (Files)                                                                                          |          3 |        386 |         71 |         99 |        556 |
+| addons\imjp94.yafsm\src\conditions                                                                                       |          6 |        144 |          7 |         46 |        197 |
+| addons\imjp94.yafsm\src\debugger                                                                                         |          3 |         71 |          2 |         18 |         91 |
+| addons\imjp94.yafsm\src\states                                                                                           |          2 |        197 |         28 |         46 |        271 |
+| addons\imjp94.yafsm\src\transitions                                                                                      |          1 |         75 |          6 |         18 |         99 |
+| assets                                                                                                                   |         16 |        464 |          0 |         96 |        560 |
+| assets\image                                                                                                             |         16 |        464 |          0 |         96 |        560 |
+| assets\image\buildable                                                                                                   |          2 |         58 |          0 |         12 |         70 |
+| assets\image\character                                                                                                   |          1 |         29 |          0 |          6 |         35 |
+| assets\image\gui                                                                                                         |          2 |         58 |          0 |         12 |         70 |
+| assets\image\item                                                                                                        |          7 |        203 |          0 |         42 |        245 |
+| assets\image\map                                                                                                         |          1 |         29 |          0 |          6 |         35 |
+| assets\image\weapon                                                                                                      |          3 |         87 |          0 |         18 |        105 |
+| data                                                                                                                     |          1 |         61 |          0 |          0 |         61 |
+| scene                                                                                                                    |         48 |        887 |          5 |        211 |      1,103 |
+| scene\ui                                                                                                                 |         11 |        277 |          0 |         49 |        326 |
+| scene\world                                                                                                              |         37 |        610 |          5 |        162 |        777 |
+| scene\world (Files)                                                                                                      |         35 |        562 |          5 |        140 |        707 |
+| scene\world\level                                                                                                        |          2 |         48 |          0 |         22 |         70 |
+| script                                                                                                                   |          1 |         11 |          4 |          6 |         21 |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                 | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\README.md                                                   | Markdown   |         67 |          0 |         15 |         82 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\YAFSM.gd                                                    | GDScript   |         12 |          6 |          3 |         21 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\fonts\sans_serif.tres                                | GDResource |          4 |          0 |          2 |          6 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\add-white-18dp.svg                             | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\add-white-18dp.svg.import                      | GDResource |         32 |          0 |          6 |         38 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\arrow_right-white-18dp.svg                     | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\arrow_right-white-18dp.svg.import              | GDResource |         32 |          0 |          6 |         38 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\close-white-18dp.svg                           | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\close-white-18dp.svg.import                    | GDResource |         32 |          0 |          6 |         38 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\compare_arrows-white-18dp.svg                  | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\compare_arrows-white-18dp.svg.import           | GDResource |         32 |          0 |          6 |         38 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\remove-white-18dp.svg                          | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\remove-white-18dp.svg.import                   | GDResource |         32 |          0 |          6 |         38 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\stack_player_icon.png.import                   | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\state_machine_icon.png.import                  | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\state_machine_player_icon.png.import           | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\subdirectory_arrow_right-white-18dp.svg        | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\assets\icons\subdirectory_arrow_right-white-18dp.svg.import | GDResource |         32 |          0 |          6 |         38 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\plugin.cfg                                                  | Properties |          6 |          0 |          2 |          8 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\plugin.gd                                                   | GDScript   |        122 |          5 |         24 |        151 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\ContextMenu.tscn                                     | GDScene    |         11 |          0 |          2 |         13 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\ParametersPanel.gd                                   | GDScript   |         49 |          2 |         13 |         64 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\PathViewer.gd                                        | GDScript   |         48 |          6 |         11 |         65 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\StateMachineEditor.gd                                | GDScript   |        616 |         48 |         83 |        747 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\StateMachineEditor.tscn                              | GDScene    |         85 |          0 |         17 |        102 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\StateMachineEditorLayer.gd                           | GDScript   |        128 |          9 |         12 |        149 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\StateNodeContextMenu.tscn                            | GDScene    |         16 |          0 |          2 |         18 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\BoolConditionEditor.gd             | GDScript   |         15 |          0 |          8 |         23 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\BoolConditionEditor.tscn           | GDScene    |         27 |          0 |          9 |         36 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\ConditionEditor.gd                 | GDScript   |         55 |          1 |         17 |         73 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\ConditionEditor.tscn               | GDScene    |         20 |          0 |          5 |         25 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\FloatConditionEditor.gd            | GDScript   |         33 |          0 |         12 |         45 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\FloatConditionEditor.tscn          | GDScene    |         20 |          0 |          7 |         27 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\IntegerConditionEditor.gd          | GDScript   |         33 |          0 |         13 |         46 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\IntegerConditionEditor.tscn        | GDScene    |         20 |          0 |          7 |         27 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\StringConditionEditor.gd           | GDScript   |         33 |          0 |         14 |         47 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\StringConditionEditor.tscn         | GDScene    |         22 |          0 |          8 |         30 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\ValueConditionEditor.gd            | GDScript   |         44 |          0 |         14 |         58 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\condition_editors\ValueConditionEditor.tscn          | GDScene    |         36 |          0 |          7 |         43 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\flowchart\FlowChart.gd                               | GDScript   |        518 |         79 |         85 |        682 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\flowchart\FlowChartGrid.gd                           | GDScript   |         39 |          6 |         19 |         64 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\flowchart\FlowChartLayer.gd                          | GDScript   |        116 |         15 |         27 |        158 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\flowchart\FlowChartLine.gd                           | GDScript   |         67 |          5 |         20 |         92 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\flowchart\FlowChartLine.tscn                         | GDScene    |         37 |          0 |          8 |         45 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\flowchart\FlowChartNode.gd                           | GDScript   |         24 |          1 |          9 |         34 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\flowchart\FlowChartNode.tscn                         | GDScene    |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\state_nodes\StateInspector.gd                        | GDScript   |          7 |          1 |          4 |         12 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\state_nodes\StateNode.gd                             | GDScript   |         65 |          1 |         17 |         83 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\state_nodes\StateNode.tscn                           | GDScene    |         70 |          0 |         10 |         80 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\transition_editors\TransitionEditor.gd               | GDScript   |        150 |          3 |         33 |        186 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\transition_editors\TransitionEditor.tscn             | GDScene    |        105 |          0 |         29 |        134 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\transition_editors\TransitionInspector.gd            | GDScript   |         27 |          0 |          7 |         34 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\transition_editors\TransitionLine.gd                 | GDScript   |         92 |          1 |         20 |        113 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scenes\transition_editors\TransitionLine.tscn               | GDScene    |         21 |          0 |          6 |         27 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\scripts\Utils.gd                                            | GDScript   |         79 |         12 |         13 |        104 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\StackPlayer.gd                                          | GDScript   |         63 |          8 |         17 |         88 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\StateDirectory.gd                                       | GDScript   |         55 |         17 |         23 |         95 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\StateMachinePlayer.gd                                   | GDScript   |        268 |         46 |         59 |        373 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\conditions\BooleanCondition.gd                          | GDScript   |         17 |          0 |          6 |         23 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\conditions\Condition.gd                                 | GDScript   |         17 |          0 |          7 |         24 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\conditions\FloatCondition.gd                            | GDScript   |         19 |          0 |          7 |         26 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\conditions\IntegerCondition.gd                          | GDScript   |         17 |          0 |          7 |         24 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\conditions\StringCondition.gd                           | GDScript   |         19 |          0 |          7 |         26 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\conditions\ValueCondition.gd                            | GDScript   |         55 |          7 |         12 |         74 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\debugger\StackItem.tscn                                 | GDScene    |          9 |          0 |          3 |         12 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\debugger\StackPlayerDebugger.gd                         | GDScript   |         39 |          2 |         10 |         51 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\debugger\StackPlayerDebugger.tscn                       | GDScene    |         23 |          0 |          5 |         28 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\states\State.gd                                         | GDScript   |         26 |          1 |         13 |         40 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\states\StateMachine.gd                                  | GDScript   |        171 |         27 |         33 |        231 |
+| c:\Users\nightscratch\Documents\rpg-game\addons\imjp94.yafsm\src\transitions\Transition.gd                               | GDScript   |         75 |          6 |         18 |         99 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\buildable\buildable_home.png.import                                | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\buildable\light.png.import                                         | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\character\bad_guy.png.import                                       | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\gui\gui_armor.png.import                                           | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\gui\hover.png.import                                               | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\item\item_arrow.png.import                                         | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\item\item_bow.png.import                                           | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\item\item_dress.png.import                                         | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\item\item_fireball_launcher.png.import                             | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\item\item_home.png.import                                          | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\item\item_light.png.import                                         | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\item\item_sword.png.import                                         | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\map\door.png.import                                                | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\weapon\bow.png.import                                              | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\weapon\bullet.png.import                                           | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\assets\image\weapon\weapon_sword.png.import                                     | GDResource |         29 |          0 |          6 |         35 |
+| c:\Users\nightscratch\Documents\rpg-game\buildable.gd                                                                    | GDScript   |         31 |          0 |          9 |         40 |
+| c:\Users\nightscratch\Documents\rpg-game\bullet.gd                                                                       | GDScript   |         23 |          0 |          7 |         30 |
+| c:\Users\nightscratch\Documents\rpg-game\data\item.json                                                                  | JSON       |         61 |          0 |          0 |         61 |
+| c:\Users\nightscratch\Documents\rpg-game\door_actionable.gd                                                              | GDScript   |          6 |          0 |          3 |          9 |
+| c:\Users\nightscratch\Documents\rpg-game\level.gd                                                                        | GDScript   |          4 |          0 |          2 |          6 |
+| c:\Users\nightscratch\Documents\rpg-game\mob.gd                                                                          | GDScript   |         86 |          7 |         22 |        115 |
+| c:\Users\nightscratch\Documents\rpg-game\project.godot                                                                   | GDResource |         17 |          0 |          0 |         17 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\change_level.gd                                                        | GDScript   |          6 |          0 |          6 |         12 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\equipment_item_slot.gd                                                 | GDScript   |          3 |          0 |          2 |          5 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\equipment_manager.gd                                                   | GDScript   |         14 |          0 |          6 |         20 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\hud.gd                                                                 | GDScript   |          2 |          0 |          1 |          3 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\hud.tscn                                                               | GDScene    |        107 |          0 |          6 |        113 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\inventory.gd                                                           | GDScript   |          2 |          0 |          0 |          2 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\inventory.tscn                                                         | GDScene    |        116 |          0 |         18 |        134 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\inventory_tab_bar.gd                                                   | GDScript   |         11 |          0 |          5 |         16 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\item_info_panel.gd                                                     | GDScript   |         12 |          0 |          3 |         15 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\player_info_hud.gd                                                     | GDScript   |          2 |          0 |          1 |          3 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\ui\player_info_manager.gd                                                 | GDScript   |          2 |          0 |          1 |          3 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\Data.tscn                                                           | GDScene    |         14 |          0 |          0 |         14 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\Entity.tscn                                                         | GDScene    |          2 |          0 |          0 |          2 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\build_manager.gd                                                    | GDScript   |         34 |          1 |          9 |         44 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\buildable.tscn                                                      | GDScene    |         37 |          0 |         11 |         48 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\buildable_home.tscn                                                 | GDScene    |         13 |          0 |          6 |         19 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\buildable_light.tscn                                                | GDScene    |         14 |          0 |          7 |         21 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\bullet.tscn                                                         | GDScene    |         25 |          0 |         13 |         38 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\bullet_arrow.tscn                                                   | GDScene    |          6 |          0 |          4 |         10 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\data_mananger.gd                                                    | GDScript   |          2 |          0 |          0 |          2 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\door_actionable.tscn                                                | GDScene    |          7 |          0 |          3 |         10 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\entity.gd                                                           | GDScript   |          1 |          0 |          0 |          1 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\game.tscn                                                           | GDScene    |         60 |          0 |         -8 |         52 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\global.gd                                                           | GDScript   |          2 |          0 |          0 |          2 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\healthbar.tscn                                                      | GDScene    |         12 |          0 |          3 |         15 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\held_item_manager.gd                                                | GDScript   |         45 |          2 |         12 |         59 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\hit_area_2d.gd                                                      | GDScript   |          3 |          0 |          2 |          5 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\hit_area_2d.tscn                                                    | GDScene    |          8 |          0 |          4 |         12 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\holdable.gd                                                         | GDScript   |         16 |          0 |          6 |         22 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\holdable.tscn                                                       | GDScene    |          9 |          0 |          5 |         14 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\holdable_bow.tscn                                                   | GDScene    |         13 |          0 |          4 |         17 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\holdable_fireball_launcher.tscn                                     | GDScene    |         48 |          0 |          8 |         56 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\holdable_soward.tscn                                                | GDScene    |         75 |          0 |         11 |         86 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\holdable_wepone.gd                                                  | GDScript   |         64 |          0 |         13 |         77 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\holdable_wepone.tscn                                                | GDScene    |         14 |          0 |          5 |         19 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\hurtbox.gd                                                          | GDScript   |          6 |          0 |          3 |          9 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\hurtbox.tscn                                                        | GDScene    |          8 |          0 |          5 |         13 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\level.tscn                                                          | GDScene    |         74 |          0 |         14 |         88 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\level\level_1.tscn                                                  | GDScene    |         31 |          0 |         14 |         45 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\level\level_2.tscn                                                  | GDScene    |         17 |          0 |          8 |         25 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\level_manager.gd                                                    | GDScript   |         56 |          1 |         14 |         71 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\mob.tscn                                                            | GDScene    |         66 |          0 |         20 |         86 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\player.gd                                                           | GDScript   |         11 |          0 |          4 |         15 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\player.tscn                                                         | GDScene    |         19 |          0 |          6 |         25 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\state_machine.gd                                                    | GDScript   |         22 |          0 |          5 |         27 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\temperature_manager.gd                                              | GDScript   |         -5 |          1 |         -1 |         -5 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\world.gd                                                            | GDScript   |         -1 |          0 |         -1 |         -2 |
+| c:\Users\nightscratch\Documents\rpg-game\scene\world\world.tscn                                                          | GDScene    |       -218 |          0 |        -47 |       -265 |
+| c:\Users\nightscratch\Documents\rpg-game\script\state.gd                                                                 | GDScript   |         11 |          4 |          6 |         21 |
+| Total                                                                                                                    |            |      5,716 |        331 |      1,257 |      7,304 |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

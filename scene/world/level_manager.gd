@@ -48,6 +48,8 @@ func change_to_level(path: String) -> void:
 	if level:
 		for k in keep_node:
 			k.reparent(get_tree().root)
+		for k in get_tree().get_nodes_in_group("scene_owen"):
+			k.queue_free()
 		level.queue_free()
 		level = null
 		

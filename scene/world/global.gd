@@ -1,8 +1,10 @@
 extends Node
 
 var current_game:Game
+var player:Player
 var level_manager:LevelManager
-
+var buildable_interaction_manager:BuildableInteractionManager
+	
 func add_quset(id):
 	current_game.quest_manager.add_quest(id)
 	

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgjxj2cbvcwy7"]
+
+[ext_resource type="PackedScene" uid="uid://b4igjrn1gd0am" path="res://scene/world/buildable_hud.tscn" id="1_5ideh"]
+[ext_resource type="Script" uid="uid://5hfig5q3x8it" path="res://addons/gloot/core/inventory.gd" id="2_4xc6d"]
+[ext_resource type="Script" uid="uid://b7q285cfvi5up" path="res://scene/world/buildable_box_hud.gd" id="2_ddorb"]
+[ext_resource type="JSON" path="res://data/item.json" id="3_nlpew"]
+[ext_resource type="Script" uid="uid://b8hbvp4kl88cn" path="res://addons/gloot/core/constraints/grid_constraint.gd" id="3_u153y"]
+[ext_resource type="Script" uid="uid://d0pfc3q6sof8y" path="res://addons/gloot/ui/ctrl_inventory_grid.gd" id="5_nlpew"]
+
+[node name="BuildableBoxHud" instance=ExtResource("1_5ideh")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+script = ExtResource("2_ddorb")
+
+[node name="Inventory" type="Node" parent="." index="0"]
+script = ExtResource("2_4xc6d")
+protoset = ExtResource("3_nlpew")
+_serialized_format = {}
+metadata/_custom_type_script = "uid://5hfig5q3x8it"
+
+[node name="GridConstraint" type="Node" parent="Inventory" index="0"]
+script = ExtResource("3_u153y")
+size = Vector2i(6, 3)
+metadata/_custom_type_script = "uid://b8hbvp4kl88cn"
+
+[node name="CtrlInventoryGrid" type="Control" parent="." index="1" node_paths=PackedStringArray("inventory")]
+anchors_preset = 0
+script = ExtResource("5_nlpew")
+inventory = NodePath("../Inventory")
+metadata/_custom_type_script = "uid://d0pfc3q6sof8y"

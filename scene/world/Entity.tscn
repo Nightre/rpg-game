@@ -7,6 +7,8 @@
 size = Vector2(32, 16)
 
 [node name="Entity" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_igmn1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

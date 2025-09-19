@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjjqtu4nvm3vx"]
+[gd_scene load_steps=21 format=3 uid="uid://bjjqtu4nvm3vx"]
 
 [ext_resource type="Script" uid="uid://cms3aunth6y2s" path="res://scene/ui/hud.gd" id="1_o8u2p"]
 [ext_resource type="PackedScene" uid="uid://b20t5ok76v2pi" path="res://scene/ui/inventory.tscn" id="1_s3k51"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bgbc1hc0mv2x" path="res://scene/ui/quest.tscn" id="9_t0n4l"]
 [ext_resource type="Script" uid="uid://duy2w27go67hc" path="res://scene/ui/quest_complete.gd" id="10_g5rf0"]
 [ext_resource type="Script" uid="uid://crjkfiw0h4ht7" path="res://scene/ui/change_level.gd" id="11_aeo18"]
+[ext_resource type="PackedScene" uid="uid://c532ugxhkmsi8" path="res://scene/ui/buildable_interaction.tscn" id="12_onxnr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aeo18"]
 line_spacing = 30.0
@@ -78,35 +79,6 @@ _data = {
 &"show": SubResource("Animation_onxnr")
 }
 
-[sub_resource type="Animation" id="Animation_wtm7s"]
-resource_name = "show"
-length = 0.3
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_6fek2"]
 length = 0.001
 tracks/0/type = "value"
@@ -163,6 +135,35 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_wtm7s"]
+resource_name = "show"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_umk68"]
 _data = {
 &"RESET": SubResource("Animation_6fek2"),
@@ -177,13 +178,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_o8u2p")
 
 [node name="PlayerInfo" parent="." instance=ExtResource("3_pvgpj")]
 layout_mode = 1
 
 [node name="InventoryContainer" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -193,11 +194,23 @@ offset_top = -164.0
 offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 alignment = 1
+
+[node name="BuildableInteraction" parent="InventoryContainer" instance=ExtResource("12_onxnr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 1
+
+[node name="BuildableInteractionManager" parent="InventoryContainer/BuildableInteraction" index="1" node_paths=PackedStringArray("hud")]
+hud = NodePath("../../..")
 
 [node name="Inventory" parent="InventoryContainer" instance=ExtResource("1_s3k51")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -254,6 +267,7 @@ offset_left = -200.0
 offset_right = 0.0
 offset_bottom = 408.0
 grow_horizontal = 0
+mouse_filter = 2
 
 [node name="QuestComplete" type="ColorRect" parent="."]
 visible = false
@@ -265,6 +279,7 @@ anchor_right = 1.0
 offset_top = 104.0
 offset_bottom = 192.0
 grow_horizontal = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.423529)
 script = ExtResource("10_g5rf0")
 
@@ -298,6 +313,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("11_aeo18")
 
@@ -309,4 +325,5 @@ libraries = {
 [connection signal="quest_accepted" from="Quest/QuestManager" to="QuestComplete" method="_on_quest_manager_quest_accepted"]
 [connection signal="quest_completed" from="Quest/QuestManager" to="QuestComplete" method="_on_quest_manager_quest_completed"]
 
+[editable path="InventoryContainer/BuildableInteraction"]
 [editable path="Quest"]

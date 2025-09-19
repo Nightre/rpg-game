@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://isj5i3h67xdi"]
+
+[ext_resource type="PackedScene" uid="uid://blui3toxsmxdj" path="res://scene/world/Entity.tscn" id="1_e0shf"]
+[ext_resource type="Script" uid="uid://6j3x3im8xefk" path="res://mob.gd" id="2_3qgbl"]
+[ext_resource type="Texture2D" uid="uid://tclni8k1otte" path="res://assets/image/character/bad_guy.png" id="3_3qgbl"]
+[ext_resource type="Script" uid="uid://crtcxufqtv1xr" path="res://scene/world/held_item_manager.gd" id="6_uoexd"]
+[ext_resource type="PackedScene" uid="uid://b1lhegixed8tt" path="res://scene/world/healthbar.tscn" id="8_o47q1"]
+[ext_resource type="PackedScene" uid="uid://dnaw84jwtwb5l" path="res://scene/world/hurtbox.tscn" id="9_uii7m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0shf"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uii7m"]
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6dhn"]
+radius = 32.0
+
+[node name="Mob" instance=ExtResource("1_e0shf")]
+script = ExtResource("2_3qgbl")
+max_hp = 100.0
+hp = null
+max_path_length = 300.0
+hand_item = "sword"
+speed = 50.0
+team = "mob"
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_e0shf")
+
+[node name="Player" parent="." index="1"]
+position = Vector2(-4, -8)
+texture = ExtResource("3_3qgbl")
+
+[node name="Hand" type="Node2D" parent="Player" index="0"]
+position = Vector2(12, -8)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="2"]
+avoidance_enabled = true
+
+[node name="NavigationTimer" type="Timer" parent="." index="3"]
+wait_time = 0.1
+autostart = true
+
+[node name="Healthbar" parent="." index="4" instance=ExtResource("8_o47q1")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -72.0
+offset_right = 24.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hurtbox" parent="." index="5" instance=ExtResource("9_uii7m")]
+team = "mob"
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_uii7m")
+
+[node name="AttackableArea" type="Area2D" parent="." index="6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackableArea" index="0"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_y6dhn")
+
+[node name="HeldItemManager" type="Node" parent="." index="7" node_paths=PackedStringArray("hand", "player")]
+script = ExtResource("6_uoexd")
+hand = NodePath("../Player/Hand")
+player = NodePath("..")
+
+[node name="AttackTimer" type="Timer" parent="." index="8"]
+
+[connection signal="timeout" from="NavigationTimer" to="." method="_on_navigation_timer_timeout"]
+[connection signal="damaged" from="Hurtbox" to="." method="_on_hurtbox_damaged"]
+[connection signal="body_entered" from="AttackableArea" to="." method="_on_attackable_area_body_entered"]
+[connection signal="body_exited" from="AttackableArea" to="." method="_on_attackable_area_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+
+[editable path="Hurtbox"]

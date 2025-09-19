@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bjjqtu4nvm3vx" path="res://scene/ui/hud.tscn" id="3_33cqm"]
 [ext_resource type="Script" uid="uid://b8hbvp4kl88cn" path="res://addons/gloot/core/constraints/grid_constraint.gd" id="4_lvtoo"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_dbls1")
+player = NodePath("World/Player")
 
 [node name="World" parent="." instance=ExtResource("1_5kiuu")]
 
@@ -22,9 +23,13 @@ compositer = NodePath("../../../CanvasLayer/HUD/InventoryContainer/Inventory/Com
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_33cqm")]
+mouse_filter = 2
 
 [node name="PlayerInfo" parent="CanvasLayer/HUD" index="0" node_paths=PackedStringArray("player_info")]
 player_info = NodePath("../../../World/Player/PlayerInfo")
+
+[node name="CtrlInventoryGrid" parent="CanvasLayer/HUD/InventoryContainer/Inventory/Panel/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(320, 256)
 
 [node name="ItemInfoPanel" parent="CanvasLayer/HUD/InventoryContainer/Inventory/Panel/HBoxContainer" index="1" node_paths=PackedStringArray("build_manager")]
 build_manager = NodePath("../../../../../../../World/BuildManager")
@@ -42,6 +47,8 @@ _serialized_format = {
 "13": "Vector2i(1, 5)",
 "14": "Vector2i(1, 6)",
 "15": "Vector2i(1, 7)",
+"16": "Vector2i(2, 0)",
+"17": "Vector2i(2, 1)",
 "2": "Vector2i(0, 2)",
 "3": "Vector2i(0, 3)",
 "4": "Vector2i(0, 4)",
@@ -104,6 +111,12 @@ _serialized_format = {
 }, {
 "protoset": "res://data/item.json",
 "prototype_id": "home"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "box"
+}, {
+"protoset": "res://data/item.json",
+"prototype_id": "box"
 }],
 "node_name": "InventoryData",
 "protoset": "res://data/item.json"
@@ -124,15 +137,18 @@ player = NodePath("../../../../../World/Player")
 [node name="EquipmentManager" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="7" node_paths=PackedStringArray("hand_manager")]
 hand_manager = NodePath("../../../../../World/Player/HeldItemManager")
 
+[connection signal="hp_changed" from="World/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_hp_changed"]
+[connection signal="money_changed" from="World/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_money_changed"]
+[connection signal="temperature_changed" from="World/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_temperature_changed"]
 [connection signal="building_selected" from="World/BuildManager" to="CanvasLayer/HUD" method="_on_build_manager_building_selected"]
 [connection signal="level_changed" from="World/LevelManager" to="CanvasLayer/HUD/ChangeLevel" method="_on_level_manager_level_changed"]
 [connection signal="level_load_started" from="World/LevelManager" to="CanvasLayer/HUD/ChangeLevel" method="_on_level_manager_level_load_started"]
-[connection signal="quest_accepted" from="CanvasLayer/HUD/Quest/QuestManager" to="CanvasLayer/HUD/QuestComplete" method="_on_quest_manager_quest_accepted"]
-[connection signal="quest_completed" from="CanvasLayer/HUD/Quest/QuestManager" to="CanvasLayer/HUD/QuestComplete" method="_on_quest_manager_quest_completed"]
 
 [editable path="World"]
 [editable path="World/Player"]
+[editable path="World/Player/Hurtbox"]
 [editable path="CanvasLayer/HUD"]
 [editable path="CanvasLayer/HUD/PlayerInfo"]
+[editable path="CanvasLayer/HUD/InventoryContainer/BuildableInteraction"]
 [editable path="CanvasLayer/HUD/InventoryContainer/Inventory"]
 [editable path="CanvasLayer/HUD/Quest"]

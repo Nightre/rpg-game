@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c686wl0xky7ae"]
+[gd_scene load_steps=16 format=3 uid="uid://c686wl0xky7ae"]
 
 [ext_resource type="PackedScene" uid="uid://blui3toxsmxdj" path="res://scene/world/Entity.tscn" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://454wry2p1hcl" path="res://scene/world/player.gd" id="2_ct4mp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://hh840xpvep41" path="res://scene/world/effect_manager.gd" id="6_oh5ij"]
 [ext_resource type="Script" uid="uid://bxkclunlsk15r" path="res://scene/world/eat_manager.gd" id="7_hp4bs"]
 [ext_resource type="Script" uid="uid://crtcxufqtv1xr" path="res://scene/world/held_item_manager.gd" id="9_ophg2"]
+[ext_resource type="PackedScene" uid="uid://dnaw84jwtwb5l" path="res://scene/world/hurtbox.tscn" id="10_kg6fq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n1h7y"]
 radius = 5.09902
@@ -22,9 +23,13 @@ radius = 26.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ophg2"]
 radius = 26.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yq1wu"]
+height = 48.0
+
 [node name="Player" instance=ExtResource("1_fvtld")]
 script = ExtResource("2_ct4mp")
 speed = 100.0
+team = "player"
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, -5)
@@ -73,11 +78,23 @@ script = ExtResource("6_oh5ij")
 [node name="EatManager" type="Node" parent="." index="8"]
 script = ExtResource("7_hp4bs")
 
-[node name="HeldItemManager" type="Node" parent="." index="9"]
+[node name="HeldItemManager" type="Node" parent="." index="9" node_paths=PackedStringArray("hand", "player")]
 script = ExtResource("9_ophg2")
+hand = NodePath("../Player/Hand")
+player = NodePath("..")
+
+[node name="Hurtbox" parent="." index="10" instance=ExtResource("10_kg6fq")]
+team = "player"
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_yq1wu")
 
 [connection signal="area_exited" from="ActionArea" to="ActionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="PickArea" to="." method="_on_pick_area_area_entered"]
 [connection signal="area_exited" from="PickArea" to="." method="_on_pick_area_area_exited"]
 [connection signal="area_entered" from="AdditionalCompositeArea" to="AdditionalCompositeArea" method="_on_area_entered"]
 [connection signal="area_exited" from="AdditionalCompositeArea" to="AdditionalCompositeArea" method="_on_area_exited"]
+[connection signal="damaged" from="Hurtbox" to="PlayerInfo" method="_on_hurtbox_damaged"]
+
+[editable path="Hurtbox"]

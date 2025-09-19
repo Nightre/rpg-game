@@ -37,7 +37,6 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="CtrlInventoryGrid" type="Control" parent="Panel/HBoxContainer" node_paths=PackedStringArray("inventory")]
-custom_minimum_size = Vector2(320, 256)
 layout_mode = 2
 script = ExtResource("4_kpipp")
 inventory = NodePath("../../../InventoryData")

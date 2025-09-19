@@ -18,7 +18,7 @@ func add_environment_temperature(t):
 		environment_temperature = t
 
 func _process(delta: float) -> void:
-	environment_temperature = 0
+	environment_temperature = 26
 	if effect_manager.has_effect("warm"):
 		environment_temperature = 26
 		player_info.temperature = environment_temperature

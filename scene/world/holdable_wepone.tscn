@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dojcq7fv6fkj0"]
+[gd_scene load_steps=4 format=3 uid="uid://dojcq7fv6fkj0"]
 
 [ext_resource type="PackedScene" uid="uid://damck5rwb8hy2" path="res://scene/world/holdable.tscn" id="1_k674d"]
 [ext_resource type="Script" uid="uid://b1o0pmdm5lxh7" path="res://scene/world/holdable_wepone.gd" id="2_1dutf"]
+[ext_resource type="PackedScene" uid="uid://cw3hpaw8vje8t" path="res://scene/world/hit_area_2d.tscn" id="3_oq5v1"]
 
 [node name="HoldableWepone" instance=ExtResource("1_k674d")]
 script = ExtResource("2_1dutf")
@@ -9,4 +10,9 @@ charge_rate = 0.0
 bullet = null
 sprite_frame_num = 0
 consume = ""
+team = "player"
 use_cold_time = 1
+
+[node name="HitBox" parent="." index="2" instance=ExtResource("3_oq5v1")]
+
+[editable path="HitBox"]

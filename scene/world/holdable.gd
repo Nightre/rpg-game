@@ -4,6 +4,11 @@ signal used
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var use_cold_time = 0
 @export var compositer:Compositer
+@export var image:Texture2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+func _ready() -> void:
+	sprite_2d.texture = image
 
 func start_use():
 	use()

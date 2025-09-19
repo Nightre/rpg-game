@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://55fk2w17biu2"]
+[gd_scene load_steps=5 format=3 uid="uid://55fk2w17biu2"]
 
 [ext_resource type="PackedScene" uid="uid://unnlws67bb4h" path="res://scene/world/buildable.tscn" id="1_6t2bi"]
 [ext_resource type="Texture2D" uid="uid://0wfqv6rate1" path="res://assets/image/buildable/buildable_home.png" id="2_cbody"]
+[ext_resource type="PackedScene" uid="uid://b4igjrn1gd0am" path="res://scene/world/buildable_hud.tscn" id="2_kirfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbody"]
 size = Vector2(32, 5)
 
 [node name="BuildableHome" instance=ExtResource("1_6t2bi")]
+title = "墙壁"
+can_open = true
+open_hud = ExtResource("2_kirfx")
 
 [node name="Sprite2D" parent="." index="0"]
-y_sort_enabled = true
 position = Vector2(0, 24)
 texture = ExtResource("2_cbody")
 offset = Vector2(0, -24)

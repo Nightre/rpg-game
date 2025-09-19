@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ccphvgqc2n338"]
+[gd_scene load_steps=19 format=3 uid="uid://ccphvgqc2n338"]
 
 [ext_resource type="Script" uid="uid://bh6onx0ushvqh" path="res://scene/world/data_mananger.gd" id="1_0ii02"]
 [ext_resource type="Script" uid="uid://c5yvinh5epbr3" path="res://script/effect_data.gd" id="2_lf0qm"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bveb121uon24f" path="res://scene/world/holdable_bow.tscn" id="9_n3t3s"]
 [ext_resource type="PackedScene" uid="uid://55fk2w17biu2" path="res://scene/world/buildable_home.tscn" id="10_n3t3s"]
 [ext_resource type="PackedScene" uid="uid://cugjn1u3jycay" path="res://scene/world/buildable_light.tscn" id="11_ecx62"]
+[ext_resource type="PackedScene" uid="uid://dhefrb0wkdsy6" path="res://scene/world/buildable_box.tscn" id="12_lucsa"]
 
 [sub_resource type="Resource" id="Resource_rdra6"]
 script = ExtResource("2_lf0qm")
@@ -77,6 +78,7 @@ item_scene = Dictionary[String, PackedScene]({
 "sword": ExtResource("7_knajn")
 })
 item_build_scene = Dictionary[String, PackedScene]({
+"box": ExtResource("12_lucsa"),
 "home": ExtResource("10_n3t3s"),
 "light": ExtResource("11_ecx62")
 })
