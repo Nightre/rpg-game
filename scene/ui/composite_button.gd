@@ -20,18 +20,19 @@ func _ready() -> void:
 			
 	if composite.output_num > 1:
 		label.text += '*' +str(composite.output_num)
-	
-	for material_item_id in composite.input:
-		var texture = TextureRect.new()
-		match material_item_id:
-			"coin":
-				texture.texture = Compositer.SPECIAL_ITEM[material_item_id]["image"]
-			_:
-				var item = inventory.create_item(material_item_id)
-				texture.texture = item.get_texture()
 		
-		var num_label = Label.new()
-		num_label.text = '*'+str(composite.input[material_item_id])
-		
-		material_container.add_child(texture)
-		material_container.add_child(num_label)
+	material_container.display(composite.input)
+	#for material_item_id in composite.input:
+		#var texture = TextureRect.new()
+		#match material_item_id:
+			#"coin":
+				#texture.texture = Compositer.SPECIAL_ITEM[material_item_id]["image"]
+			#_:
+				#var item = inventory.create_item(material_item_id)
+				#texture.texture = item.get_texture()
+		#
+		#var num_label = Label.new()
+		#num_label.text = '*'+str(composite.input[material_item_id])
+		#
+		#material_container.add_child(texture)
+		#material_container.add_child(num_label)

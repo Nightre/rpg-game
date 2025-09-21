@@ -11,6 +11,7 @@ size = Vector2(64, 56)
 [node name="BuildableBox" instance=ExtResource("1_bjyoy")]
 script = ExtResource("2_jon10")
 title = "箱子"
+drops = "box"
 can_open = true
 open_hud = ExtResource("3_7ckfn")
 
@@ -20,3 +21,5 @@ texture = ExtResource("2_wk5y1")
 [node name="CollisionShape2D2" parent="PlaceArea2D" index="0"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_jon10")
+
+[editable path="Actionable"]

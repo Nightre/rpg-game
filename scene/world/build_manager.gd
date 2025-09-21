@@ -15,8 +15,14 @@ func get_build_parent():
 # 选中建造物
 func select_building(item: InventoryItem) -> void:
 	building_item = item
-	var scene = Data.item_build_scene[building_item.get_property("id")]
+	Global.hud.state = Global.hud.STATE.BUILDING 
+
+	var item_build_scene =  Data.item_build_scene
+	var id = building_item.get_property("id")
+	var scene:PackedScene = item_build_scene[id]
+	
 	selected_building = scene.instantiate()
+	
 	building_selected.emit(building_item)
 	selected_building.call_deferred("set_in_build", true)
 	get_build_parent().add_child(selected_building)
@@ -36,8 +42,9 @@ func build() -> void:
 		cancel_selection()
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("build"):
-		build()
-	elif Input.is_action_just_pressed("cancel"):
-		selected_building.queue_free()
-		cancel_selection()
+	if selected_building:
+		if Input.is_action_just_released("build"):
+			build()
+		elif Input.is_action_just_pressed("cancel"):
+			selected_building.queue_free()
+			cancel_selection()

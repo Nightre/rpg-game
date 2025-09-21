@@ -31,3 +31,8 @@ anchors_preset = 0
 script = ExtResource("5_nlpew")
 inventory = NodePath("../Inventory")
 metadata/_custom_type_script = "uid://d0pfc3q6sof8y"
+
+[node name="Button" parent="." index="2"]
+offset_top = 104.0
+offset_right = 40.0
+offset_bottom = 135.0

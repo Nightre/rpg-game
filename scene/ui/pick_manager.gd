@@ -3,6 +3,7 @@ class_name PickManager extends Node
 @onready var inventory: Inventory = $"../InventoryData"
 @export var map:Node2D
 @export var player:Player
+@export var drop_manager:DropsManager
 
 func pick(item:InventoryItem, num:int):
 	inventory.add_item(item)

@@ -5,3 +5,4 @@ extends Node
 @export var quest:Dictionary[String, QuestData] = {}
 @export var item_scene:Dictionary[String, PackedScene] = {}
 @export var item_build_scene:Dictionary[String, PackedScene] = {}
+@export var tech_nodes:Dictionary[String, TechNodeData] = {}

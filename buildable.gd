@@ -8,6 +8,7 @@ signal pressed
 @onready var button: Button = $Button
 
 @export var title = ""
+@export var drops = ""
 @export var can_open = false
 @export var open_hud:PackedScene
 
@@ -15,20 +16,28 @@ var buildable_hud:BuildableHud
 var in_build = false
 var can_build = false
 
+var disable_click = false
+
 func set_in_build(is_in_build):
+	print("set_in_build:", is_in_build)
 	in_build = is_in_build
-	collision_shape_2d_2.disabled = !in_build
+	#collision_shape_2d_2.disabled = !in_build
 	if in_build:
 		set_can_build(true)
-		button.disabled = true
+		Global.hud.state = Global.hud.STATE.BUILDING
 	else:
 		sprite_2d.modulate = Color.WHITE
-		if can_open:
-			await get_tree().process_frame
-			button.disabled = false
+		Global.hud.state = Global.hud.STATE.IDLE
 			
 func _ready() -> void:
 	button.disabled = not can_open
+	Global.hud.state_changed.connect(on_state_changed)
+	on_state_changed(Global.hud.state)
+	
+func on_state_changed(state):
+	print("STATE_CHNAGE:", state)
+	disable_click = not can_open or state != Global.hud.STATE.IDLE
+	button.disabled = disable_click
 		
 func set_can_build(value: bool) -> void:
 	can_build = value
@@ -69,6 +78,18 @@ func init_hud(new_buildable_hud:BuildableHud):
 	pass
 	
 func _on_button_pressed() -> void:
-	if not in_build:
+	if not in_build and not disable_click:
 		pressed.emit()
 		Global.buildable_interaction_manager.open_buildable(self)
+
+func destory():
+	Global.hud.close_all_hud()
+	if drops:
+		Global.drops.add_drop(drops, position)
+	queue_free()
+	
+func can_use(item:InventoryItem):
+	return false
+
+func use_item(item:InventoryItem):
+	item.get_inventory().remove_item(item)

@@ -1,0 +1,168 @@
+[gd_scene load_steps=4 format=3 uid="uid://bii0dh6g143yy"]
+
+[ext_resource type="Script" uid="uid://ch6q6pp77m81l" path="res://scene/ui/tech_tree_manager.gd" id="2_afrly"]
+[ext_resource type="PackedScene" uid="uid://p8big78qylee" path="res://scene/ui/tech_tree_node.tscn" id="3_cb0ac"]
+[ext_resource type="PackedScene" uid="uid://btarallqs6wt7" path="res://scene/ui/material_container.tscn" id="3_yntbf"]
+
+[node name="Control2" type="Panel"]
+offset_right = 208.0
+offset_bottom = 344.0
+
+[node name="TechTree" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="TechTree"]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+
+[node name="TechTreeNode" parent="TechTree/Control" node_paths=PackedStringArray("tech_tree_manager") instance=ExtResource("3_cb0ac")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 80.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 80.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+tech_tree_manager = NodePath("../../TechTreeManager")
+id = "root"
+
+[node name="TechTreeNode2" parent="TechTree/Control" node_paths=PackedStringArray("tech_tree_manager") instance=ExtResource("3_cb0ac")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 64.0
+offset_right = 72.0
+offset_bottom = 128.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+tech_tree_manager = NodePath("../../TechTreeManager")
+id = "run"
+
+[node name="TechTreeNode3" parent="TechTree/Control" node_paths=PackedStringArray("tech_tree_manager") instance=ExtResource("3_cb0ac")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 72.0
+offset_bottom = 192.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+tech_tree_manager = NodePath("../../TechTreeManager")
+id = "super_run"
+
+[node name="TechTreeNode4" parent="TechTree/Control" node_paths=PackedStringArray("tech_tree_manager") instance=ExtResource("3_cb0ac")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 208.0
+offset_bottom = 128.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+tech_tree_manager = NodePath("../../TechTreeManager")
+id = "jump"
+
+[node name="TechTreeNode5" parent="TechTree/Control" node_paths=PackedStringArray("tech_tree_manager") instance=ExtResource("3_cb0ac")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 144.0
+offset_top = 128.0
+offset_right = 208.0
+offset_bottom = 192.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+tech_tree_manager = NodePath("../../TechTreeManager")
+id = "super_jump"
+
+[node name="TechTreeNode6" parent="TechTree/Control" node_paths=PackedStringArray("tech_tree_manager") instance=ExtResource("3_cb0ac")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 80.0
+offset_top = 184.0
+offset_right = 144.0
+offset_bottom = 248.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+tech_tree_manager = NodePath("../../TechTreeManager")
+id = "run_jump"
+
+[node name="TechTreeManager" type="Node" parent="TechTree"]
+script = ExtResource("2_afrly")
+
+[node name="Panel" type="Panel" parent="TechTree"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NameLabel" type="Label" parent="TechTree/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 31.0
+
+[node name="PreLabel" type="Label" parent="TechTree/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 48.0
+offset_bottom = 63.0
+
+[node name="UnlockButton" type="Button" parent="TechTree/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "解锁"
+
+[node name="MaterialContainer" parent="TechTree/Panel" instance=ExtResource("3_yntbf")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 70.0
+offset_right = 152.0
+offset_bottom = 102.0
+
+[connection signal="pressed" from="TechTree/Panel/UnlockButton" to="TechTree/TechTreeManager" method="_on_unlock_button_pressed"]

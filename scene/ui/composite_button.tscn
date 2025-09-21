@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt4uocqrr0c82"]
+[gd_scene load_steps=4 format=3 uid="uid://dt4uocqrr0c82"]
 
 [ext_resource type="Script" uid="uid://cf7utxdbcgp0r" path="res://scene/ui/composite_button.gd" id="1_utvi2"]
 [ext_resource type="Texture2D" uid="uid://0043hepj70ty" path="res://assets/image/effect/effect_worm.png" id="2_w2jp8"]
+[ext_resource type="PackedScene" uid="uid://btarallqs6wt7" path="res://scene/ui/material_container.tscn" id="3_06g4h"]
 
 [node name="CompositeButton" type="Button"]
 custom_minimum_size = Vector2(192, 64)
@@ -25,8 +26,8 @@ offset_right = 104.0
 offset_bottom = 31.0
 text = "物品名字"
 
-[node name="MaterialContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
+[node name="MaterialContainer" parent="." instance=ExtResource("3_06g4h")]
+layout_mode = 2
 offset_left = 64.0
 offset_top = 32.0
 offset_right = 184.0

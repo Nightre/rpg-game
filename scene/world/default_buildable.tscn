@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr3gyjv08evl8"]
+
+[ext_resource type="PackedScene" uid="uid://unnlws67bb4h" path="res://scene/world/buildable.tscn" id="1_0ysbf"]
+[ext_resource type="Script" uid="uid://byq3xq6kymgi8" path="res://scene/world/default_buildable.gd" id="2_fu76p"]
+
+[node name="DefaultBuildable" instance=ExtResource("1_0ysbf")]
+script = ExtResource("2_fu76p")
+
+[node name="Button" parent="." index="2"]
+visible = false

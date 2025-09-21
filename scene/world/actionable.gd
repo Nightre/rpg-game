@@ -4,11 +4,12 @@ signal interacted
 @onready var progress_bar: TextureProgressBar = $ProgressBar
 @onready var action_tip: Sprite2D = $ActionTip
 @export var time: float = 1.0 
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var active: bool = false
 var hold_time: float = 0.0
 var is_holding: bool = false
-
+			
 func _ready() -> void:
 	set_active(false)
 	progress_bar.max_value = time

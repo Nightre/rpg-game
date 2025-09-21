@@ -14,7 +14,6 @@ extends Entity
 		if healthbar:
 			healthbar.value = (hp / max_hp) * 100.0
 		if hp <= 0:
-			print("_hp", hp)
 			change_state("die")
 	get:
 		return hp
@@ -63,7 +62,6 @@ func _on_hurtbox_damaged(damage: Variant) -> void:
 func change_state(new_state: String) -> void:
 	if state == new_state:
 		return
-	#print("change_state:", state, " -> ", new_state)
 	var prev = state
 	state = new_state
 	on_state_changed(prev, state)

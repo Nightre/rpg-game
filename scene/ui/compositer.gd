@@ -52,12 +52,11 @@ func remove_items_by_prototype(prototype_id: String, count: int) -> int:
 			
 			return removed  # 返回实际移除的数量（防止库存不足）
 
-func can_composite(composite:CompositeData):
-	var can = true
-	for item_id in composite.input:
-		if get_item_quantity(item_id) < composite.input[item_id]:
-			can = false
-	return can
+func can_composite(material:Dictionary[String, int]):
+	for item_id in material:
+		if get_item_quantity(item_id) < material[item_id]:
+			return false
+	return true
 
 func update_composite_list():
 	remove_all()
@@ -81,7 +80,7 @@ func add_label(text):
 	container.add_child(tilte)
 
 func add_composite(composite:CompositeData):
-	if can_composite(composite):
+	if can_composite(composite.input):
 		var button = preload("res://scene/ui/composite_button.tscn").instantiate()
 		button.pressed.connect(func (): composite_button_pressed(composite))
 		button.composite = composite

@@ -1,5 +1,7 @@
 class_name HUD extends Control
 
+signal state_changed(state:STATE)
+
 @onready var inventory: Control = %Inventory
 @onready var buildable_interaction: Control = %BuildableInteraction
 
@@ -8,7 +10,23 @@ enum HUD_TYPE {
 	BUILDABLE,
 }
 
-var current_huds: Array = []   # 支持多个 HUD
+enum STATE {
+	IDLE,
+	BUILDING,
+	USEING,
+	HUD,
+}
+
+var state:STATE = STATE.IDLE:
+	set(v):
+		state = v
+		state_changed.emit(v)
+		
+var current_huds: Array = []
+
+
+func _init() -> void:
+	Global.hud = self
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("inventory"):
@@ -21,21 +39,24 @@ func _process(delta: float) -> void:
 func open_hud(hud_type: int) -> void:
 	if hud_type not in current_huds:
 		current_huds.append(hud_type)
-	print("open_hud", hud_type)
 
 	match hud_type:
 		HUD_TYPE.INVENTORY:
 			set_open_inventory(true)
 		HUD_TYPE.BUILDABLE:
 			set_open_buildable(true)
-
+	cheack_state()
+	
+func cheack_state():	
+	if len(current_huds) > 0:
+		state = STATE.HUD
+	else:
+		state = STATE.IDLE
+		
 # 关闭 HUD
 func close_hud(hud_type: int) -> void:
-	print("open_hud", hud_type)
-	
 	if not hud_type in current_huds:
 		return
-		
 	
 	current_huds.erase(hud_type)
 
@@ -44,7 +65,9 @@ func close_hud(hud_type: int) -> void:
 			set_open_inventory(false)
 		HUD_TYPE.BUILDABLE:
 			set_open_buildable(false)
-
+			
+	cheack_state()
+	
 func close_all_hud():
 	for h in HUD_TYPE.values():
 		close_hud(h)
@@ -63,4 +86,7 @@ func set_open_inventory(new_open_inventory: bool):
 		inventory.open()
 
 func _on_build_manager_building_selected(item: InventoryItem) -> void:
+	close_all_hud()
+
+func _on_use_manager_using_selected(item: InventoryItem) -> void:
 	close_all_hud()

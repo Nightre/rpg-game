@@ -1,138 +1,194 @@
 {
 	"item_stone": {
-		"name":"石头",
-		"id":"item_stone",
+		"name": "石头",
+		"id": "item_stone",
 		"stack_size": 1,
 		"max_stack_size": 52,
-		"image":"res://assets/image/item/item_stone.png",
-		"info":"普通的石头",
+		"image": "res://assets/image/item/item_stone.png",
+		"info": "普通的石头"
 	},
 	"item_fruit": {
-		"name":"水果",
-		"id":"item_fruit",
+		"name": "水果",
+		"id": "item_fruit",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_fruit.png",
-		"edible":true,
-		"info":"一种水果，吃了加血，可以采集",
+		"image": "res://assets/image/item/item_fruit.png",
+		"edible": true,
+		"info": "一种水果，吃了加血，可以采集"
 	},
 	"grilled_fruit": {
-		"name":"烤水果",
-		"id":"item_fruit",
+		"name": "烤水果",
+		"id": "item_fruit",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/grilled_fruit.png",
-		"edible":true,
-		"info":"在篝火旁边烤水果得到",
-		"health": 10,
+		"image": "res://assets/image/item/grilled_fruit.png",
+		"edible": true,
+		"info": "在篝火旁边烤水果得到",
+		"health": 10
 	},
 	"speed_potions": {
-		"name":"速度药水",
-		"id":"speed_potions",
+		"name": "速度药水",
+		"id": "speed_potions",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_speed_potion.png",
-		"edible":true,
-		"info":"吃了加速的药水",
-		"effects":["speed"]
+		"image": "res://assets/image/item/item_speed_potion.png",
+		"edible": true,
+		"info": "吃了加速的药水",
+		"effects": [
+			"speed"
+		]
 	},
 	"warm_potions": {
-		"name":"温暖药水",
-		"id":"warm_potions",
+		"name": "温暖药水",
+		"id": "warm_potions",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_warm_potion.png",
-		"edible":true,
-		"info":"吃了可以保温",
-		"effects":["warm"]
+		"image": "res://assets/image/item/item_warm_potion.png",
+		"edible": true,
+		"info": "吃了可以保温",
+		"effects": [
+			"warm"
+		]
 	},
 	"healt_potions": {
-		"name":"生命药水",
-		"id":"healt_potions",
+		"name": "生命药水",
+		"id": "healt_potions",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_healt_potion.png",
-		"edible":true,
-		"info":"吃了可以加生命值",
-		
-		"health": 10,
+		"image": "res://assets/image/item/item_healt_potion.png",
+		"edible": true,
+		"info": "吃了可以加生命值",
+		"health": 10
 	},
 	"potions": {
-		"name":"玻璃瓶",
-		"id":"potions",
+		"name": "玻璃瓶",
+		"id": "potions",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_potions.png",
-		"info":"可以用来做药水的玻璃瓶",
+		"image": "res://assets/image/item/item_potions.png",
+		"info": "可以用来做药水的玻璃瓶"
 	},
 	"sword": {
-		"name":"剑",
-		"id":"sword",
+		"name": "剑",
+		"id": "sword",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_sword.png",
-		"info":"可以攻击",
-		"equippable": true,
+		"image": "res://assets/image/item/item_sword.png",
+		"info": "可以攻击",
+		"equippable": true
 	},
-	"bow":{
-		"name":"弓",
-		"id":"bow",
+	"bow": {
+		"name": "弓",
+		"id": "bow",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_bow.png",
-		"info":"蓄力发射箭",
-		"equippable": true,
+		"image": "res://assets/image/item/item_bow.png",
+		"info": "蓄力发射箭",
+		"equippable": true
 	},
-	"fireball_launcher":{
-		"name":"火焰球发射器",
-		"id":"fireball_launcher",
+	"fireball_launcher": {
+		"name": "火焰球发射器",
+		"id": "fireball_launcher",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_fireball_launcher.png",
-		"info":"发射火焰球",
-		"equippable": true,
+		"image": "res://assets/image/item/item_fireball_launcher.png",
+		"info": "发射火焰球",
+		"equippable": true
 	},
-	"arrow":{
-		"name":"箭",
-		"id":"arrow",
+	"arrow": {
+		"name": "箭",
+		"id": "arrow",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_arrow.png",
-		"info":"箭",
+		"image": "res://assets/image/item/item_arrow.png",
+		"info": "箭"
 	},
-	"dress":{
-		"name":"盔甲",
-		"id":"dress",
+	"dress": {
+		"name": "盔甲",
+		"id": "dress",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_dress.png",
-		"info":"箭",
+		"image": "res://assets/image/item/item_dress.png",
+		"info": "箭"
 	},
-	"home":{
-		"name":"墙壁",
-		"id":"home",
+	"home": {
+		"name": "墙壁",
+		"id": "home",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_home.png",
-		"info":"可以建造的墙壁",
-		"buildable":true
+		"image": "res://assets/image/item/item_home.png",
+		"info": "可以建造的墙壁",
+		"buildable": true
 	},
-	"light":{
-		"name":"灯",
-		"id":"light",
+	"light": {
+		"name": "灯",
+		"id": "light",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_light.png",
-		"info":"可以建造的灯",
-		"buildable":true
+		"image": "res://assets/image/item/item_light.png",
+		"info": "可以建造的灯",
+		"buildable": true
 	},
-	"box":{
-		"name":"箱子",
-		"id":"box",
+	"box": {
+		"name": "箱子",
+		"id": "box",
 		"stack_size": 1,
 		"max_stack_size": 24,
-		"image":"res://assets/image/item/item_box.png",
-		"info":"可以用来放东西",
-		"buildable":true
+		"image": "res://assets/image/item/item_box.png",
+		"info": "可以用来放东西",
+		"buildable": true
+	},
+	"seed": {
+		"name": "种子",
+		"id": "seed",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image": "res://assets/image/item/item_seed.png",
+		"info": "种地",
+		"useable": true
+	},
+	"leaf": {
+		"name": "菜",
+		"id": "leaf",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image": "res://assets/image/item/item_leaf.png",
+		"info": "种地得到"
+	},
+	"fertilizer": {
+		"name": "肥料",
+		"id": "fertilizer",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image": "res://assets/image/item/item_fertilizer.png",
+		"info": "施肥加速生成",
+		"useable": true
+	},
+	"field": {
+		"name": "田地",
+		"id": "field",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image": "res://assets/image/item/item_field.png",
+		"info": "用来种地",
+		"buildable": true
+	},
+	"kettle": {
+		"name": "水壶",
+		"id": "kettle",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image": "res://assets/image/item/item_kettle.png",
+		"info": "用来浇水",
+		"useable": true
+	},
+	"sprinkler": {
+		"name": "自动洒水机",
+		"id": "sprinkler",
+		"stack_size": 1,
+		"max_stack_size": 24,
+		"image": "res://assets/image/item/item_sprinkler.png",
+		"info": "自动的",
+		"buildable": true
 	}
 }

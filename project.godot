@@ -42,13 +42,14 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gloot/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gloot/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
 [global_group]
 
 temperature=""
 Buildables=""
 scene_owen=""
+tree_nodes=""
 
 [input]
 
@@ -113,6 +114,7 @@ cancel={
 2d_physics/layer_3="pick"
 2d_physics/layer_4="composite"
 2d_physics/layer_5="attack"
+2d_physics/layer_6="use"
 
 [rendering]
 

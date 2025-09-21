@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b20t5ok76v2pi"]
+[gd_scene load_steps=18 format=3 uid="uid://b20t5ok76v2pi"]
 
 [ext_resource type="Script" uid="uid://5hfig5q3x8it" path="res://addons/gloot/core/inventory.gd" id="1_fb012"]
 [ext_resource type="Script" uid="uid://duu77wcwik83s" path="res://scene/ui/inventory.gd" id="1_jj3rf"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://7re18588p8y5" path="res://assets/image/gui/gui_armor.png" id="9_bej3n"]
 [ext_resource type="Script" uid="uid://cqxfh230qkyyw" path="res://scene/ui/compositer.gd" id="9_c62h7"]
 [ext_resource type="Script" uid="uid://lckf0x84fc0" path="res://scene/ui/inventory_tab_bar.gd" id="11_pr53l"]
+[ext_resource type="PackedScene" uid="uid://bii0dh6g143yy" path="res://scene/ui/tech_tree.tscn" id="11_xqmva"]
 [ext_resource type="Script" uid="uid://cn83mgh1hcorb" path="res://scene/ui/equipment_manager.gd" id="12_rxyrd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxyrd"]
@@ -37,6 +38,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="CtrlInventoryGrid" type="Control" parent="Panel/HBoxContainer" node_paths=PackedStringArray("inventory")]
+custom_minimum_size = Vector2(320, 256)
 layout_mode = 2
 script = ExtResource("4_kpipp")
 inventory = NodePath("../../../InventoryData")
@@ -81,6 +83,18 @@ offset_right = 92.0
 offset_bottom = -8.0
 grow_vertical = 0
 
+[node name="UseButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "使用"
+
+[node name="BuildButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "建造"
+
 [node name="DiscardButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
@@ -98,13 +112,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "装备"
-
-[node name="BuildButton" type="Button" parent="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-text = "放置
-"
 
 [node name="InventoryData" type="Node" parent="."]
 script = ExtResource("1_fb012")
@@ -227,15 +234,29 @@ item_slot = NodePath("../ItemSlot3")
 slot_style = SubResource("StyleBoxFlat_bej3n")
 metadata/_custom_type_script = "uid://trghhrgo3fax"
 
+[node name="Control2" parent="." instance=ExtResource("11_xqmva")]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 32.0
+offset_right = 536.0
+offset_bottom = 376.0
+
+[node name="TechTreeManager" parent="Control2/TechTree" index="1" node_paths=PackedStringArray("compositer")]
+compositer = NodePath("../../../Compositer")
+
+[node name="MaterialContainer" parent="Control2/TechTree/Panel" index="3" node_paths=PackedStringArray("inventory")]
+inventory = NodePath("../../../../InventoryData")
+
 [node name="TabBar" type="TabBar" parent="."]
 layout_mode = 0
 offset_left = 328.0
 offset_right = 536.0
 offset_bottom = 16.0
 current_tab = 0
-tab_count = 2
+tab_count = 3
 tab_0/title = "装备"
 tab_1/title = "合成"
+tab_2/title = "技能"
 script = ExtResource("11_pr53l")
 
 [node name="Compositer" type="Node" parent="." node_paths=PackedStringArray("inventory", "container")]
@@ -250,13 +271,16 @@ script = ExtResource("8_kbp00")
 script = ExtResource("12_rxyrd")
 
 [connection signal="inventory_item_selected" from="Panel/HBoxContainer/CtrlInventoryGrid" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_ctrl_inventory_grid_inventory_item_selected"]
+[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/UseButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_use_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/BuildButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_build_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/DiscardButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_discard_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/EatButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_eat_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/EquipmentButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_equipment_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/ItemInfoPanel/HBoxContainer/BuildButton" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_build_button_pressed"]
 [connection signal="item_added" from="InventoryData" to="Compositer" method="_on_inventory_data_item_added"]
 [connection signal="item_removed" from="InventoryData" to="Panel/HBoxContainer/ItemInfoPanel" method="_on_inventory_data_item_removed"]
 [connection signal="item_removed" from="InventoryData" to="Compositer" method="_on_inventory_data_item_removed"]
 [connection signal="cleared" from="Equipment/EquipmentItemSlot" to="EquipmentManager" method="_on_equipment_item_slot_cleared"]
 [connection signal="item_equipped" from="Equipment/EquipmentItemSlot" to="EquipmentManager" method="_on_equipment_item_slot_item_equipped"]
 [connection signal="tab_changed" from="TabBar" to="TabBar" method="_on_tab_changed"]
+
+[editable path="Control2"]
