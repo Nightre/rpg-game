@@ -7,14 +7,14 @@
 [ext_resource type="Script" uid="uid://cno84yuq4c7nh" path="res://scene/ui/item_info_panel.gd" id="3_u7j7x"]
 [ext_resource type="Script" uid="uid://d0pfc3q6sof8y" path="res://addons/gloot/ui/ctrl_inventory_grid.gd" id="4_kpipp"]
 [ext_resource type="Script" uid="uid://trghhrgo3fax" path="res://addons/gloot/ui/ctrl_item_slot.gd" id="7_4frhu"]
-[ext_resource type="Script" uid="uid://ik1tvqlhy405" path="res://scene/ui/pick_manager.gd" id="8_kbp00"]
+[ext_resource type="Script" uid="uid://ik1tvqlhy405" path="res://scene/manager/pick_manager.gd" id="8_kbp00"]
 [ext_resource type="Script" uid="uid://c6wangdtwc4m7" path="res://addons/gloot/core/item_slot.gd" id="8_pr53l"]
 [ext_resource type="Script" uid="uid://bnqibdc8ilwl7" path="res://scene/ui/equipment_item_slot.gd" id="8_rxyrd"]
 [ext_resource type="Texture2D" uid="uid://7re18588p8y5" path="res://assets/image/gui/gui_armor.png" id="9_bej3n"]
 [ext_resource type="Script" uid="uid://cqxfh230qkyyw" path="res://scene/ui/compositer.gd" id="9_c62h7"]
 [ext_resource type="Script" uid="uid://lckf0x84fc0" path="res://scene/ui/inventory_tab_bar.gd" id="11_pr53l"]
 [ext_resource type="PackedScene" uid="uid://bii0dh6g143yy" path="res://scene/ui/tech_tree.tscn" id="11_xqmva"]
-[ext_resource type="Script" uid="uid://cn83mgh1hcorb" path="res://scene/ui/equipment_manager.gd" id="12_rxyrd"]
+[ext_resource type="Script" uid="uid://cn83mgh1hcorb" path="res://scene/manager/equipment_manager.gd" id="12_rxyrd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxyrd"]
 
@@ -38,7 +38,6 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="CtrlInventoryGrid" type="Control" parent="Panel/HBoxContainer" node_paths=PackedStringArray("inventory")]
-custom_minimum_size = Vector2(320, 256)
 layout_mode = 2
 script = ExtResource("4_kpipp")
 inventory = NodePath("../../../InventoryData")

@@ -1,19 +1,19 @@
 [gd_scene load_steps=28 format=3 uid="uid://ccphvgqc2n338"]
 
-[ext_resource type="Script" uid="uid://bh6onx0ushvqh" path="res://scene/world/data_mananger.gd" id="1_0ii02"]
+[ext_resource type="Script" uid="uid://bh6onx0ushvqh" path="res://scene/manager/data_mananger.gd" id="1_0ii02"]
 [ext_resource type="Script" uid="uid://c5yvinh5epbr3" path="res://script/effect_data.gd" id="2_lf0qm"]
 [ext_resource type="Texture2D" uid="uid://dfi0177q3tefd" path="res://assets/image/effect/effect_speed.png" id="3_248cn"]
 [ext_resource type="Texture2D" uid="uid://0043hepj70ty" path="res://assets/image/effect/effect_worm.png" id="4_248cn"]
 [ext_resource type="Script" uid="uid://bq2a4vkgi5ue7" path="res://script/composite_data.gd" id="5_rdra6"]
 [ext_resource type="Script" uid="uid://jg5h6b5j0loe" path="res://script/quest_data.gd" id="6_g46a2"]
-[ext_resource type="PackedScene" uid="uid://daabr5drj322k" path="res://scene/world/holdable_soward.tscn" id="7_knajn"]
-[ext_resource type="PackedScene" uid="uid://bdblckyoxbs10" path="res://scene/world/holdable_fireball_launcher.tscn" id="8_knajn"]
-[ext_resource type="PackedScene" uid="uid://bveb121uon24f" path="res://scene/world/holdable_bow.tscn" id="9_n3t3s"]
-[ext_resource type="PackedScene" uid="uid://55fk2w17biu2" path="res://scene/world/buildable_home.tscn" id="10_n3t3s"]
-[ext_resource type="PackedScene" uid="uid://cugjn1u3jycay" path="res://scene/world/buildable_light.tscn" id="11_ecx62"]
-[ext_resource type="PackedScene" uid="uid://dhefrb0wkdsy6" path="res://scene/world/buildable_box.tscn" id="12_lucsa"]
+[ext_resource type="PackedScene" uid="uid://daabr5drj322k" path="res://scene/world/holdable/holdable_soward.tscn" id="7_knajn"]
+[ext_resource type="PackedScene" uid="uid://bdblckyoxbs10" path="res://scene/world/holdable/holdable_fireball_launcher.tscn" id="8_knajn"]
+[ext_resource type="PackedScene" uid="uid://bveb121uon24f" path="res://scene/world/holdable/holdable_bow.tscn" id="9_n3t3s"]
+[ext_resource type="PackedScene" uid="uid://55fk2w17biu2" path="res://scene/world/buildable/buildable_home.tscn" id="10_n3t3s"]
+[ext_resource type="PackedScene" uid="uid://cugjn1u3jycay" path="res://scene/world/buildable/buildable_light.tscn" id="11_ecx62"]
+[ext_resource type="PackedScene" uid="uid://dhefrb0wkdsy6" path="res://scene/world/buildable/buildable_box.tscn" id="12_lucsa"]
 [ext_resource type="PackedScene" uid="uid://di6heswxqgobi" path="res://scene/world/field_buildable.tscn" id="13_w7nib"]
-[ext_resource type="PackedScene" uid="uid://voha8xnxpkdd" path="res://scene/world/buildable_sprinkler.tscn" id="14_dgj5o"]
+[ext_resource type="PackedScene" uid="uid://voha8xnxpkdd" path="res://scene/world/buildable/buildable_sprinkler.tscn" id="14_dgj5o"]
 [ext_resource type="Script" uid="uid://d3806f16thgui" path="res://script/tech_node.gd" id="15_n5d5n"]
 
 [sub_resource type="Resource" id="Resource_rdra6"]
@@ -65,6 +65,15 @@ title = "找到鸡哥"
 description = "帮助人找到鸡哥"
 metadata/_custom_type_script = "uid://jg5h6b5j0loe"
 
+[sub_resource type="Resource" id="Resource_4d3x1"]
+script = ExtResource("15_n5d5n")
+title = "跳"
+prerequisites = Array[String](["root"])
+materials = Dictionary[String, int]({
+"coin": 2
+})
+metadata/_custom_type_script = "uid://d3806f16thgui"
+
 [sub_resource type="Resource" id="Resource_y4xw3"]
 script = ExtResource("15_n5d5n")
 title = "ROOT"
@@ -82,21 +91,13 @@ materials = Dictionary[String, int]({
 })
 metadata/_custom_type_script = "uid://d3806f16thgui"
 
-[sub_resource type="Resource" id="Resource_qjs72"]
+[sub_resource type="Resource" id="Resource_3xlhg"]
 script = ExtResource("15_n5d5n")
-title = "超级跑"
-prerequisites = Array[String](["run"])
+title = "跑跳"
+prerequisites = Array[String](["super_jump", "run"])
 materials = Dictionary[String, int]({
-"coin": 3
-})
-metadata/_custom_type_script = "uid://d3806f16thgui"
-
-[sub_resource type="Resource" id="Resource_4d3x1"]
-script = ExtResource("15_n5d5n")
-title = "跳"
-prerequisites = Array[String](["root"])
-materials = Dictionary[String, int]({
-"coin": 2
+"coin": 10,
+"fertilizer": 1
 })
 metadata/_custom_type_script = "uid://d3806f16thgui"
 
@@ -109,13 +110,12 @@ materials = Dictionary[String, int]({
 })
 metadata/_custom_type_script = "uid://d3806f16thgui"
 
-[sub_resource type="Resource" id="Resource_3xlhg"]
+[sub_resource type="Resource" id="Resource_qjs72"]
 script = ExtResource("15_n5d5n")
-title = "跑跳"
-prerequisites = Array[String](["super_jump", "run"])
+title = "超级跑"
+prerequisites = Array[String](["run"])
 materials = Dictionary[String, int]({
-"coin": 10,
-"fertilizer": 1
+"coin": 3
 })
 metadata/_custom_type_script = "uid://d3806f16thgui"
 

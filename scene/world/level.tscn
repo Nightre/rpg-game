@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ruley8wu20k5"]
+[gd_scene load_steps=13 format=3 uid="uid://ruley8wu20k5"]
 
-[ext_resource type="Script" uid="uid://dprug4dbyfq28" path="res://level.gd" id="1_jufs7"]
+[ext_resource type="Script" uid="uid://dprug4dbyfq28" path="res://scene/world/level.gd" id="1_jufs7"]
 [ext_resource type="Texture2D" uid="uid://dgpvyp53dg3bf" path="res://assets/image/map/tileset.png" id="2_a7svs"]
+[ext_resource type="Shader" uid="uid://cykpljhx0nf4b" path="res://assets/shader/wind_sway.gdshader" id="2_aanf0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a7svs"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -20,6 +21,18 @@ vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)])
 agent_radius = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h42l6"]
+shader = ExtResource("2_aanf0")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.03
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_35hwu"]
 
@@ -40,6 +53,7 @@ texture_region_size = Vector2i(32, 32)
 2:0/size_in_atlas = Vector2i(2, 3)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, 32)
+2:0/0/material = SubResource("ShaderMaterial_h42l6")
 2:0/0/y_sort_origin = 9
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.31863, 2.54905, 8.2844, 7.32851, 1.27452, 12.108, -6.69124, 8.60303)
 2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_35hwu")

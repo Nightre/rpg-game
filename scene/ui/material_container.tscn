@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://btarallqs6wt7"]
 
-[ext_resource type="Script" uid="uid://ci65kxq75o8eb" path="res://material_container.gd" id="1_wvv15"]
+[ext_resource type="Script" uid="uid://ci65kxq75o8eb" path="res://scene/world/material_container.gd" id="1_wvv15"]
 
 [node name="MaterialContainer" type="HBoxContainer"]
 offset_right = 40.0

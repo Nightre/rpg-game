@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2opji76fdjt5"]
 
-[ext_resource type="PackedScene" uid="uid://dj371qvvrplox" path="res://scene/world/bullet.tscn" id="1_wyt2p"]
+[ext_resource type="PackedScene" uid="uid://dj371qvvrplox" path="res://scene/world/bullet/bullet.tscn" id="1_wyt2p"]
 [ext_resource type="Texture2D" uid="uid://d4cyej3sg26kx" path="res://assets/image/item/item_arrow.png" id="2_pec7q"]
 
 [node name="BulletArrow" instance=ExtResource("1_wyt2p")]
 
 [node name="Bullet" parent="." index="0"]
 texture = ExtResource("2_pec7q")
+
+[editable path="HitArea2D"]

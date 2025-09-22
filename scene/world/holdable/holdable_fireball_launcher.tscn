@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdblckyoxbs10"]
 
-[ext_resource type="PackedScene" uid="uid://dojcq7fv6fkj0" path="res://scene/world/holdable_wepone.tscn" id="1_5po44"]
-[ext_resource type="PackedScene" uid="uid://dj371qvvrplox" path="res://scene/world/bullet.tscn" id="2_6rbxx"]
+[ext_resource type="PackedScene" uid="uid://dojcq7fv6fkj0" path="res://scene/world/holdable/holdable_wepone.tscn" id="1_5po44"]
+[ext_resource type="PackedScene" uid="uid://dj371qvvrplox" path="res://scene/world/bullet/bullet.tscn" id="2_6rbxx"]
 [ext_resource type="Texture2D" uid="uid://cpq5koo8d6pn5" path="res://assets/image/item/item_fireball_launcher.png" id="2_r06wt"]
 
 [sub_resource type="Animation" id="Animation_wcnf2"]

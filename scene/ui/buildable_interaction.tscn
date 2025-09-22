@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c532ugxhkmsi8"]
 
 [ext_resource type="Script" uid="uid://c4332nr5bav5a" path="res://scene/ui/buildable_interaction_hud.gd" id="1_de8gw"]
-[ext_resource type="Script" uid="uid://shsmhm0decux" path="res://scene/ui/buildable_interaction_manager.gd" id="2_en05p"]
+[ext_resource type="Script" uid="uid://shsmhm0decux" path="res://scene/manager/buildable_interaction_manager.gd" id="2_en05p"]
 
 [node name="BuildableInteraction" type="Control"]
 custom_minimum_size = Vector2(300, 0)

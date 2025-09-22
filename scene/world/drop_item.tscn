@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbvbtx3we60g5"]
 
-[ext_resource type="Script" uid="uid://14c1dmfq8j4d" path="res://drop_item.gd" id="1_y4imm"]
+[ext_resource type="Script" uid="uid://14c1dmfq8j4d" path="res://scene/ui/drop_item.gd" id="1_y4imm"]
 
 [sub_resource type="Animation" id="Animation_4k7tc"]
 length = 0.001

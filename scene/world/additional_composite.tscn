@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ck4hjghf6l4lj"]
 
-[ext_resource type="Script" uid="uid://di12pi0rkpco4" path="res://additional_composite.gd" id="1_ipqbt"]
+[ext_resource type="Script" uid="uid://di12pi0rkpco4" path="res://scene/world/additional_composite.gd" id="1_ipqbt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ijxwj"]
 radius = 8.0

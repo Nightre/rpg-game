@@ -7,7 +7,7 @@ signal charge_completed
 @export var sprite_frame_num: int = 0  # 蓄力总帧数（0~N-1）
 @export var consume:String
 @export var team = ""
-@onready var hit_box: HitArea = $HitBox
+@onready var hit_box: HitArea = %HitBox
 
 var sender:Entity
 var direction:Vector2=Vector2.ZERO
@@ -25,6 +25,7 @@ func can_use():
 	return compositer.get_item_quantity(consume) > 0
 
 func _process(delta: float) -> void:
+	rotation = direction.angle()
 	if charging and charge_rate > 0:
 		charge_time = min(charge_time + delta, charge_rate) 
 		update_charge_style()

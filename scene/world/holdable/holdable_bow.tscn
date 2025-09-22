@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bveb121uon24f"]
 
-[ext_resource type="PackedScene" uid="uid://dojcq7fv6fkj0" path="res://scene/world/holdable_wepone.tscn" id="1_o5dnx"]
-[ext_resource type="PackedScene" uid="uid://c2opji76fdjt5" path="res://scene/world/bullet_arrow.tscn" id="2_rcon0"]
+[ext_resource type="PackedScene" uid="uid://dojcq7fv6fkj0" path="res://scene/world/holdable/holdable_wepone.tscn" id="1_o5dnx"]
+[ext_resource type="PackedScene" uid="uid://c2opji76fdjt5" path="res://scene/world/bullet/bullet_arrow.tscn" id="2_rcon0"]
 [ext_resource type="Texture2D" uid="uid://dv04rmg3wigml" path="res://assets/image/weapon/bow.png" id="2_rqcss"]
 
 [node name="HoldableWepone" instance=ExtResource("1_o5dnx")]

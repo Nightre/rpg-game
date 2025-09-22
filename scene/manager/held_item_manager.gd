@@ -39,9 +39,9 @@ func equip(item_or_id) -> void:
 		hand_node.team = player.team
 	hand.add_child(hand_node)
 	
-func set_direction(direction:Vector2):
+func set_direction(rotation):
 	if hand_node:
-		hand_node.direction = direction
+		hand_node.set_povit_dir(rotation)
 	
 func unequip() -> void:
 	if hand_item:

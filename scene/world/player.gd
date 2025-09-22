@@ -12,10 +12,11 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity = direction * final_speed
 		if direction.x != 0:
-			player.scale.x = 1 if direction.x > 0 else -1
+			player.flip_h = direction.x < 0
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, speed)
-	
+	var mouse_position = get_local_mouse_position()
+	held_item_manager.set_direction(position.angle_to(mouse_position))
 	move_and_slide()
 
 

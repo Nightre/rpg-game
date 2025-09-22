@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://voha8xnxpkdd"]
 
-[ext_resource type="PackedScene" uid="uid://unnlws67bb4h" path="res://scene/world/buildable.tscn" id="1_jhybs"]
+[ext_resource type="PackedScene" uid="uid://unnlws67bb4h" path="res://scene/world/buildable/buildable.tscn" id="1_jhybs"]
 [ext_resource type="Texture2D" uid="uid://bt5xhcliy7y4r" path="res://assets/image/buildable/sprinkler.png" id="2_1cywl"]
-[ext_resource type="Script" uid="uid://bewijfaxbqv5k" path="res://scene/world/buildable_sprinkler.gd" id="2_q2boq"]
+[ext_resource type="Script" uid="uid://bewijfaxbqv5k" path="res://scene/world/buildable/buildable_sprinkler.gd" id="2_q2boq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhybs"]
 radius = 8.0

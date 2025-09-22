@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://c686wl0xky7ae" path="res://scene/world/player.tscn" id="1_pjass"]
 [ext_resource type="Script" uid="uid://uid0tkjte5mv" path="res://scene/world/world.gd" id="1_y3jn2"]
 [ext_resource type="Script" uid="uid://djeyo22mpjp25" path="res://scene/world/cursor_use_area_2d.gd" id="3_se62r"]
-[ext_resource type="Script" uid="uid://decwlt1dyx7vm" path="res://scene/world/drops_manager.gd" id="5_dp1oe"]
-[ext_resource type="Script" uid="uid://blkuu555um4xw" path="res://scene/world/use_manager.gd" id="6_ydhjj"]
-[ext_resource type="Script" uid="uid://cckjkwkighu5k" path="res://scene/world/build_manager.gd" id="13_lpx6o"]
-[ext_resource type="Script" uid="uid://bw8sljl45s6s3" path="res://scene/world/level_manager.gd" id="14_4w7m2"]
+[ext_resource type="Script" uid="uid://decwlt1dyx7vm" path="res://scene/manager/drops_manager.gd" id="5_dp1oe"]
+[ext_resource type="Script" uid="uid://blkuu555um4xw" path="res://scene/manager/use_manager.gd" id="6_ydhjj"]
+[ext_resource type="Script" uid="uid://cckjkwkighu5k" path="res://scene/manager/build_manager.gd" id="13_lpx6o"]
+[ext_resource type="Script" uid="uid://bw8sljl45s6s3" path="res://scene/manager/level_manager.gd" id="14_4w7m2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ydhjj"]
 

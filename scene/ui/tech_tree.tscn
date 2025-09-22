@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bii0dh6g143yy"]
 
-[ext_resource type="Script" uid="uid://ch6q6pp77m81l" path="res://scene/ui/tech_tree_manager.gd" id="2_afrly"]
+[ext_resource type="Script" uid="uid://ch6q6pp77m81l" path="res://scene/manager/tech_tree_manager.gd" id="2_afrly"]
 [ext_resource type="PackedScene" uid="uid://p8big78qylee" path="res://scene/ui/tech_tree_node.tscn" id="3_cb0ac"]
 [ext_resource type="PackedScene" uid="uid://btarallqs6wt7" path="res://scene/ui/material_container.tscn" id="3_yntbf"]
 

@@ -11,6 +11,9 @@ player = NodePath("World/Player")
 
 [node name="World" parent="." instance=ExtResource("1_5kiuu")]
 
+[node name="Player" parent="World/Player" index="1"]
+material = null
+
 [node name="TemperatureManager" parent="World/Player" index="5" node_paths=PackedStringArray("map")]
 map = NodePath("../..")
 

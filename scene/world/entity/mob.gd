@@ -57,6 +57,7 @@ func _on_navigation_timer_timeout() -> void:
 
 func _on_hurtbox_damaged(damage: Variant) -> void:
 	hp -= damage
+	animation_player.play("hurt")
 
 # ---------------- 状态管理 ----------------
 func change_state(new_state: String) -> void:
@@ -104,9 +105,7 @@ func attack():
 			var time_to_target = distance / bullet_speed
 			
 			# 预测玩家位置
-			var target_pos = Global.player.global_position + Global.player.velocity * time_to_target
+			var target_pos = Global.player.global_position + Global.player.velocity * time_to_target + Vector2(0, -12)
 			
-			# 计算方向
-			var dir = (target_pos + Vector2(0, -12)) - hand_node.global_position
-			held_item_manager.set_direction(dir.normalized())
+			held_item_manager.set_direction(hand_node.global_position.angle_to(target_pos))
 			held_item_manager.end_use()

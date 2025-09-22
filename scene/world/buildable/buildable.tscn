@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://unnlws67bb4h"]
 
-[ext_resource type="Script" uid="uid://d1key8hcn7xmm" path="res://buildable.gd" id="1_ip67h"]
+[ext_resource type="Script" uid="uid://d1key8hcn7xmm" path="res://scene/world/buildable/buildable.gd" id="1_ip67h"]
 [ext_resource type="Texture2D" uid="uid://bafk4rmeqke5k" path="res://assets/image/gui/hover.png" id="2_2d7fx"]
 [ext_resource type="Script" uid="uid://dgkprbgqpkw36" path="res://scene/world/use_area_2d.gd" id="3_rged1"]
 

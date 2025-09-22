@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://boln3rscsax0v"]
 
-[ext_resource type="PackedScene" uid="uid://damck5rwb8hy2" path="res://scene/world/holdable.tscn" id="1_e2wmf"]
+[ext_resource type="PackedScene" uid="uid://damck5rwb8hy2" path="res://scene/world/holdable/holdable.tscn" id="1_e2wmf"]
 
 [node name="DefaultHoldable" instance=ExtResource("1_e2wmf")]

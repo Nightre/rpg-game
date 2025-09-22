@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://unhgcn51vn1d"]
 
-[ext_resource type="Script" uid="uid://m5ej78kvh28x" path="res://quest_info.gd" id="1_130uh"]
+[ext_resource type="Script" uid="uid://m5ej78kvh28x" path="res://scene/ui/quest_info.gd" id="1_130uh"]
 
 [node name="QuestInfo" type="Button"]
 custom_minimum_size = Vector2(200, 32)
