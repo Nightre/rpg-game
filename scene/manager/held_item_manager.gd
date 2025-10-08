@@ -38,11 +38,16 @@ func equip(item_or_id) -> void:
 		hand_node.sender = player
 		hand_node.team = player.team
 	hand.add_child(hand_node)
-	
-func set_direction(rotation):
+
+func hand_look_at(target_position:Vector2):
+	var angle = (target_position - hand_node.global_position).angle()
 	if hand_node:
-		hand_node.set_povit_dir(rotation)
-	
+		if target_position.x - hand_node.global_position.x < 0:
+			hand_node.povit.scale.y = -1
+		else:
+			hand_node.povit.scale.y = 1
+		hand_node.set_povit_dir(angle)
+
 func unequip() -> void:
 	if hand_item:
 		hand_item = null

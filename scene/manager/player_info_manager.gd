@@ -31,3 +31,6 @@ func get_money() -> int:
 
 func _on_hurtbox_damaged(damage: Variant) -> void:
 	hp = hp - damage
+
+func _on_player_hp_changed(new_hp: Variant) -> void:
+	hp = new_hp

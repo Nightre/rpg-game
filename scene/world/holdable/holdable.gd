@@ -21,10 +21,7 @@ func use():
 	used.emit()
 
 func set_povit_dir(new_rotation):
-	povit.rotation = new_rotation + PI/4
-
-func _physics_process(delta):
-	povit.position.y = sin(Time.get_ticks_msec() * delta * 0.2) * 3
+	povit.rotation = new_rotation
 
 func end_use():
 	pass

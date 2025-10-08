@@ -1,24 +1,29 @@
 class_name Player extends Entity
 @onready var effect_manager: EffectManager = $EffectManager
-@onready var player: Sprite2D = $Player
 @onready var held_item_manager: HandManager = $HeldItemManager
 
 func _init() -> void:
 	Global.player = self
 
 func _physics_process(delta: float) -> void:
+	super(delta)
 	var direction := Input.get_vector("move_left", "move_right","move_up","move_down")
 	var final_speed = speed + 100 if effect_manager.has_effect("speed") else speed
 	if direction:
 		velocity = direction * final_speed
-		if direction.x != 0:
-			player.flip_h = direction.x < 0
+		#if direction.x != 0:
+			#player.flip_h = direction.x < 0
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, speed)
-	var mouse_position = get_local_mouse_position()
-	held_item_manager.set_direction(position.angle_to(mouse_position))
+	var mouse_position = get_global_mouse_position()
+	
 	move_and_slide()
 
+func _process(delta: float) -> void:
+	var hand_node = held_item_manager.hand_node
+	hand_look_at(get_global_mouse_position())
+	if hand_node:
+		held_item_manager.hand_look_at(get_global_mouse_position())
 
 func _on_pick_area_area_entered(area: Area2D) -> void:
 	if area is DropItem:

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://gpko57616w8u"]
+
+[node name="SettingDialog" type="AcceptDialog"]
+title = "设置"
+initial_position = 1
+size = Vector2i(400, 300)
+visible = true
+ok_button_text = "关闭"
+dialog_text = "没写"

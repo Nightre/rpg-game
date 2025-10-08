@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://6hupdirw11s8"]
+
+[ext_resource type="Script" uid="uid://c8bqt2pq5oh3d" path="res://scene/ui/archive_button.gd" id="1_g1701"]
+
+[node name="ArchiveButton" type="Button"]
+custom_minimum_size = Vector2(200, 80)
+offset_right = 200.0
+offset_bottom = 80.0
+script = ExtResource("1_g1701")
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 200.0
+offset_bottom = 31.0
+text = "删除"
+
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]

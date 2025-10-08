@@ -10,7 +10,9 @@ bullet = ExtResource("2_rcon0")
 sprite_frame_num = 4
 consume = "arrow"
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="Povit" index="0"]
 texture = ExtResource("2_rqcss")
 offset = Vector2(0, 0)
 hframes = 4
+
+[editable path="Povit/Sprite2D/HitBox"]

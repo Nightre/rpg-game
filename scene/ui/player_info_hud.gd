@@ -16,7 +16,8 @@ func init_info():
 	_on_player_info_money_changed(player_info.get_money())
 
 func _on_player_info_hp_changed(new_hp: Variant) -> void:
-	hp_progress_bar.value = new_hp
+	if hp_progress_bar:
+		hp_progress_bar.value = new_hp
 
 func _on_player_info_temperature_changed(new_temperature: Variant) -> void:
 	temperature_label.text = "温度 %.f°" % new_temperature

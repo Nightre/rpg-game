@@ -7,6 +7,11 @@ var hud:HUD
 var buildable_interaction_manager:BuildableInteractionManager
 var drops:DropsManager
 
+var current_archive = {
+	"archive":null,
+	"data":null
+}
+
 func add_quset(id):
 	current_game.quest_manager.add_quest(id)
 	

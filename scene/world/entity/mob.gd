@@ -1,35 +1,27 @@
 extends Entity
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var healthbar: TextureProgressBar = $Healthbar
 @onready var held_item_manager: HandManager = $HeldItemManager
 @onready var attack_timer: Timer = $AttackTimer
-@onready var player: Sprite2D = $Player
-@onready var hand: Node2D = $Player/Hand
-
-@export var max_hp: float = 100.0
-@export var hp: float = max_hp:
-	set(value):
-		hp = clampf(value, 0.0, max_hp)
-		if healthbar:
-			healthbar.value = (hp / max_hp) * 100.0
-		if hp <= 0:
-			change_state("die")
-	get:
-		return hp
 @export var max_path_length: float = 300.0  # 最大路径长度
 @export var hand_item = ""
 
 var state: String 
+var target_position = null
 
 func _ready() -> void:
-	hp = max_hp
+	super()
 	change_state("idle")
 	
 	if hand_item:
 		held_item_manager.equip(hand_item)
 
+func die():
+	super()
+	change_state("die")
+
 func _physics_process(delta: float) -> void:
+	super(delta)
 	velocity = Vector2.ZERO
 	match state:
 		"walk":
@@ -43,21 +35,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func make_path() -> void:
-	var target = Global.player
-	navigation_agent_2d.target_position = target.global_position
+	target_position = Global.player.global_position
+	navigation_agent_2d.target_position = target_position
 	var path_length = navigation_agent_2d.distance_to_target()
 	if path_length > max_path_length and state == "walk":
-		target = null
+		target_position = null
 		change_state("idle")
 	elif state == "idle":
 		change_state("walk")
 		
 func _on_navigation_timer_timeout() -> void:
-	make_path()
-
-func _on_hurtbox_damaged(damage: Variant) -> void:
-	hp -= damage
-	animation_player.play("hurt")
+	if ["idle", "walk"].has(state):
+		make_path()
 
 # ---------------- 状态管理 ----------------
 func change_state(new_state: String) -> void:
@@ -70,7 +59,7 @@ func change_state(new_state: String) -> void:
 func on_state_changed(from: String, to: String) -> void:
 	match to:
 		"die":
-			queue_free()
+			animation_player.play("die")
 		"attack":
 			attack()
 			attack_timer.start()
@@ -105,7 +94,11 @@ func attack():
 			var time_to_target = distance / bullet_speed
 			
 			# 预测玩家位置
-			var target_pos = Global.player.global_position + Global.player.velocity * time_to_target + Vector2(0, -12)
+			var target_pos = target_position + Global.player.velocity * time_to_target + Vector2(0, -12)
 			
-			held_item_manager.set_direction(hand_node.global_position.angle_to(target_pos))
+			held_item_manager.hand_look_at(target_pos)
+			
 			held_item_manager.end_use()
+			
+	if target_position:
+		hand_look_at(target_position)

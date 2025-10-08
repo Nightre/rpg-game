@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjjqtu4nvm3vx"]
+[gd_scene load_steps=33 format=3 uid="uid://bjjqtu4nvm3vx"]
 
 [ext_resource type="Script" uid="uid://cms3aunth6y2s" path="res://scene/ui/hud.gd" id="1_o8u2p"]
 [ext_resource type="PackedScene" uid="uid://b20t5ok76v2pi" path="res://scene/ui/inventory.tscn" id="1_s3k51"]
@@ -12,6 +12,15 @@
 [ext_resource type="Script" uid="uid://duy2w27go67hc" path="res://scene/ui/quest_complete.gd" id="10_g5rf0"]
 [ext_resource type="Script" uid="uid://crjkfiw0h4ht7" path="res://scene/ui/change_level.gd" id="11_aeo18"]
 [ext_resource type="PackedScene" uid="uid://c532ugxhkmsi8" path="res://scene/ui/buildable_interaction.tscn" id="12_onxnr"]
+[ext_resource type="Script" uid="uid://c0p8413pxud4g" path="res://scene/ui/menu.gd" id="13_llivb"]
+[ext_resource type="PackedScene" uid="uid://gpko57616w8u" path="res://scene/ui/setting_dialog.tscn" id="14_wtm7s"]
+[ext_resource type="Script" uid="uid://beqhmr2hp44uw" path="res://scene/ui/map.gd" id="15_3tp2r"]
+[ext_resource type="Script" uid="uid://cp5e6kw5u1ddr" path="res://scene/ui/mini_map.gd" id="15_umk68"]
+[ext_resource type="Texture2D" uid="uid://cqh230ntuitrp" path="res://assets/image/gui/Begoia 2025-09-23-09-02.png" id="16_umk68"]
+[ext_resource type="PackedScene" uid="uid://dfbf7f8rqvg80" path="res://scene/ui/way_point.tscn" id="18_vawuw"]
+[ext_resource type="Texture2D" uid="uid://fpwpf6qhm2ba" path="res://assets/image/map/player_pos.png" id="19_vvp4v"]
+[ext_resource type="Script" uid="uid://dvou6fyyeha6r" path="res://scene/ui/message_list.gd" id="20_1wedf"]
+[ext_resource type="Script" uid="uid://bclqbxghonpfi" path="res://scene/ui/lost_connect.gd" id="21_6n34g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aeo18"]
 line_spacing = 30.0
@@ -171,6 +180,16 @@ _data = {
 &"show": SubResource("Animation_wtm7s")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_wtm7s"]
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tp2r"]
+bg_color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wedf"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
 [node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -180,6 +199,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_o8u2p")
+metadata/_edit_horizontal_guides_ = [-64.0]
 
 [node name="PlayerInfo" parent="." instance=ExtResource("3_pvgpj")]
 layout_mode = 1
@@ -263,9 +283,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
+offset_left = -192.0
+offset_top = 200.0
 offset_right = 0.0
-offset_bottom = 408.0
+offset_bottom = 648.0
 grow_horizontal = 0
 mouse_filter = 2
 
@@ -322,8 +343,231 @@ libraries = {
 &"": SubResource("AnimationLibrary_umk68")
 }
 
+[node name="Menu" type="ColorRect" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.403922)
+script = ExtResource("13_llivb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -130.5
+offset_right = 128.0
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "凛冬荒原传说"
+label_settings = SubResource("LabelSettings_wtm7s")
+horizontal_alignment = 1
+
+[node name="GoStartScene" type="Button" parent="Menu/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "主菜单"
+
+[node name="Back" type="Button" parent="Menu/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "返回游戏"
+
+[node name="Setting" type="Button" parent="Menu/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "设置
+"
+
+[node name="Quit" type="Button" parent="Menu/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "退出并保存"
+
+[node name="SettingDialog" parent="Menu/VBoxContainer" instance=ExtResource("14_wtm7s")]
+visible = false
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_bottom = 192.0
+grow_horizontal = 0
+
+[node name="MiniMap" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_umk68")
+world_rect = Rect2(0, 0, 1440, 1440)
+
+[node name="Map" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_3tp2r")
+
+[node name="Map" type="Sprite2D" parent="Map"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("16_umk68")
+centered = false
+
+[node name="WayPoint" parent="Map/Map" instance=ExtResource("18_vawuw")]
+offset_left = 341.333
+offset_top = 266.667
+offset_right = 405.333
+offset_bottom = 330.667
+place_id = "laoba"
+place_name = "老八家"
+place_describe = "美食家我老八"
+
+[node name="WayPoint2" parent="Map/Map" instance=ExtResource("18_vawuw")]
+offset_left = 245.333
+offset_top = 437.333
+offset_right = 309.333
+offset_bottom = 501.333
+place_id = "yanhui"
+place_name = "严辉村"
+place_describe = "姓马混不下去为何对我姓范的有影响？"
+
+[node name="WayPoint3" parent="Map/Map" instance=ExtResource("18_vawuw")]
+offset_left = 469.333
+offset_top = 554.667
+offset_right = 533.333
+offset_bottom = 618.667
+place_id = "ltc"
+place_name = "理塘"
+place_describe = "雪豹闭嘴"
+
+[node name="WayPoint4" parent="Map/Map" instance=ExtResource("18_vawuw")]
+offset_left = 613.333
+offset_top = 448.0
+offset_right = 677.333
+offset_bottom = 512.0
+place_id = "ccw"
+place_name = "共创世界"
+place_describe = "搞Scratch"
+
+[node name="PlayerPosition" type="TextureRect" parent="Map/Map"]
+offset_left = 613.333
+offset_top = 448.0
+offset_right = 677.333
+offset_bottom = 512.0
+pivot_offset = Vector2(32, 48)
+mouse_filter = 2
+texture = ExtResource("19_vvp4v")
+
+[node name="Panel" type="Panel" parent="Map"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3tp2r")
+
+[node name="TitleLabel" type="Label" parent="Map/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 39.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Map/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 240.0
+offset_bottom = 632.0
+
+[node name="MessageList" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_right = 344.0
+offset_bottom = 200.0
+script = ExtResource("20_1wedf")
+
+[node name="LostConnect" type="ColorRect" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_6n34g")
+
+[node name="Label" type="Label" parent="LostConnect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -84.0
+offset_right = 160.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "已断开连接"
+label_settings = SubResource("LabelSettings_1wedf")
+
+[node name="Button" type="Button" parent="LostConnect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 20.0
+offset_right = 160.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "返回"
+
 [connection signal="quest_accepted" from="Quest/QuestManager" to="QuestComplete" method="_on_quest_manager_quest_accepted"]
 [connection signal="quest_completed" from="Quest/QuestManager" to="QuestComplete" method="_on_quest_manager_quest_completed"]
+[connection signal="pressed" from="Menu/VBoxContainer/GoStartScene" to="Menu" method="_on_go_start_scene_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Setting" to="Menu" method="_on_setting_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Quit" to="Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="LostConnect/Button" to="LostConnect" method="_on_button_pressed"]
 
 [editable path="InventoryContainer/BuildableInteraction"]
 [editable path="Quest"]

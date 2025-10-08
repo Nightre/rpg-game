@@ -64,9 +64,8 @@ func use(ratio: float=1.0) -> void:
 	if bullet:
 		var b = bullet.instantiate()
 		b.team = team
-		b.direction = direction
 		b.global_position = global_position
-		b.rotation = rotation
+		b.global_rotation = povit.global_rotation
 		b.sender = sender
 
 		b.speed *= lerp(1.0, 2.0, ratio) 

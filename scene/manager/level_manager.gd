@@ -15,6 +15,12 @@ var current_path = null
 var level:Node2D
 # path: [BuildingData]
 var level_buildings:Dictionary = {}
+var current_pos = ""
+
+const level_pos = {
+	"res://scene/world/level/level_1.tscn":"ccw",
+	"res://scene/world/level/level_2.tscn":"ltc"
+}
 
 func save_scene():
 	level_buildings[current_path] = []
@@ -44,7 +50,7 @@ func change_to_level(path: String) -> void:
 	level_load_started.emit(path)
 	ResourceLoader.load_threaded_request(path)
 	loading_path = path
-	
+	current_pos = level_pos[path]
 	if level:
 		for k in keep_node:
 			k.reparent(get_tree().root)

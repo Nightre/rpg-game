@@ -9,7 +9,6 @@ script = ExtResource("1_nd73u")
 [node name="Povit" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Povit"]
-z_index = 1
 texture = ExtResource("2_ujoy6")
 offset = Vector2(24, 0)
 

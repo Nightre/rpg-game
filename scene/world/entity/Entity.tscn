@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://blui3toxsmxdj"]
+[gd_scene load_steps=20 format=3 uid="uid://blui3toxsmxdj"]
 
 [ext_resource type="Script" uid="uid://cov4u08fgkca" path="res://scene/world/entity/entity.gd" id="1_igmn1"]
 [ext_resource type="Shader" uid="uid://b8jddu2vk5dg4" path="res://scene/world/entity/Entity.gdshader" id="2_haia4"]
 [ext_resource type="Texture2D" uid="uid://bx702mp5yv43j" path="res://assets/image/character/character_player.png" id="2_uipdi"]
 [ext_resource type="Texture2D" uid="uid://ct2ltfhicghyv" path="res://assets/image/character/ice_particle_white.png" id="4_0xx2k"]
+[ext_resource type="PackedScene" uid="uid://dnaw84jwtwb5l" path="res://scene/world/hurtbox.tscn" id="5_848xj"]
+[ext_resource type="PackedScene" uid="uid://b1lhegixed8tt" path="res://scene/world/healthbar.tscn" id="6_ah3yu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_haia4"]
 radius = 8.0
@@ -61,6 +63,169 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Healthbar:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player:material")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_0xx2k")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DieGPUParticles:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ah3yu"]
+resource_name = "die"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2.37841, 2.63901),
+"update": 0,
+"values": [0.0, 1.57116]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Healthbar:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:material:shader_parameter/active")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:material")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DieGPUParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8o82g"]
@@ -133,6 +298,7 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0xx2k"]
 _data = {
 &"RESET": SubResource("Animation_haia4"),
+&"die": SubResource("Animation_ah3yu"),
 &"hurt": SubResource("Animation_8o82g")
 }
 
@@ -146,7 +312,7 @@ curve = SubResource("Curve_848xj")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8wjv0"]
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 5.0
+emission_sphere_radius = 10.0
 angle_min = -15.0
 angle_max = 15.0
 initial_velocity_min = 30.99
@@ -156,7 +322,28 @@ scale_min = 0.3
 scale_max = 0.5
 scale_curve = SubResource("CurveTexture_ah3yu")
 
-[node name="Entity" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ah3yu"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="Curve" id="Curve_ah3yu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.858434, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8wjv0"]
+curve = SubResource("Curve_ah3yu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bqs01"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.5
+alpha_curve = SubResource("CurveTexture_8wjv0")
+
+[node name="Entity" type="CharacterBody2D" groups=["map_point"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_igmn1")
@@ -178,9 +365,51 @@ libraries = {
 [node name="HurtParticle" type="GPUParticles2D" parent="."]
 position = Vector2(0, -16)
 emitting = false
+amount = 10
 texture = ExtResource("4_0xx2k")
 lifetime = 0.4
 one_shot = true
 preprocess = 0.03
 explosiveness = 1.0
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_8wjv0")
+
+[node name="Hurtbox" parent="." instance=ExtResource("5_848xj")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_ah3yu")
+
+[node name="Healthbar" parent="." instance=ExtResource("6_ah3yu")]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -72.0
+offset_right = 24.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HandNode" type="Node2D" parent="."]
+position = Vector2(0, -19)
+
+[node name="DieGPUParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 6
+texture = ExtResource("4_0xx2k")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_bqs01")
+
+[node name="HurtLabelMarker2D" type="Marker2D" parent="."]
+position = Vector2(-14, -55)
+
+[connection signal="damaged" from="Hurtbox" to="." method="_on_hurtbox_damaged"]
+
+[editable path="Hurtbox"]

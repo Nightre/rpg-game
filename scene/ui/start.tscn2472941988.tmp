@@ -1,0 +1,324 @@
+[gd_scene load_steps=9 format=3 uid="uid://u8gr54xy88jb"]
+
+[ext_resource type="Script" uid="uid://bsdlhipns76gv" path="res://scene/ui/start.gd" id="1_g4vdl"]
+[ext_resource type="Script" uid="uid://cois1dsgswx5u" path="res://scene/ui/v_box_container_2.gd" id="2_kcft0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6hhfw"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4vdl"]
+font_size = 22
+
+[sub_resource type="Animation" id="Animation_kcft0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Archive:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 648)]
+}
+
+[sub_resource type="Animation" id="Animation_uuf2i"]
+resource_name = "close_archive"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Archive:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 648), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g4vdl"]
+resource_name = "open_archive"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Archive:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 648), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kcft0"]
+_data = {
+&"RESET": SubResource("Animation_kcft0"),
+&"close_archive": SubResource("Animation_uuf2i"),
+&"open_archive": SubResource("Animation_g4vdl")
+}
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4vdl")
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 256.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -376.0
+offset_right = 324.0
+offset_bottom = -307.0
+grow_vertical = 0
+text = "凛冬荒原传说"
+label_settings = SubResource("LabelSettings_6hhfw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -232.0
+offset_right = 200.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "单人游戏"
+
+[node name="MutiPlayerButton" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "多人联机"
+
+[node name="SettingButton" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "设置"
+
+[node name="HelpButton" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "关于游戏"
+
+[node name="QuitButton" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "退出游戏"
+
+[node name="HelpDialog" type="AcceptDialog" parent="Main"]
+unique_name_in_owner = true
+title = "帮助"
+initial_position = 3
+size = Vector2i(500, 300)
+current_screen = 0
+ok_button_text = "关闭"
+dialog_text = "还没写"
+
+[node name="SettingDialog" type="AcceptDialog" parent="Main"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+title = "设置"
+initial_position = 3
+size = Vector2i(500, 300)
+current_screen = 0
+ok_button_text = "关闭"
+dialog_text = "还没写"
+
+[node name="MutiplayerDialog" type="Window" parent="Main"]
+unique_name_in_owner = true
+title = "多人联机"
+initial_position = 1
+size = Vector2i(400, 130)
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MutiplayerDialog"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -53.0
+offset_right = 192.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/MutiplayerDialog/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "用户名: "
+
+[node name="UserNameLineEdit" type="LineEdit" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Main/MutiplayerDialog/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "服务器IP地址: "
+
+[node name="ServerIpLineEdit" type="LineEdit" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+placeholder_text = "127.0.0.1"
+
+[node name="HSeparator" type="HSeparator" parent="Main/MutiplayerDialog/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Main/MutiplayerDialog/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="JoinServerButton" type="Button" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "加入"
+
+[node name="CreateServerButton" type="Button" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "主持"
+
+[node name="Archive" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 648.0
+offset_right = 224.0
+offset_bottom = 648.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Archive"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 39.0
+text = "存档"
+label_settings = SubResource("LabelSettings_g4vdl")
+
+[node name="HSeparator" type="HSeparator" parent="Archive"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 208.0
+offset_bottom = 100.0
+
+[node name="ArchiveList" type="VBoxContainer" parent="Archive"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 112.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kcft0")
+
+[node name="GoMainButton" type="Button" parent="Archive"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 47.0
+text = "返回"
+
+[node name="CreateArchiveButton" type="Button" parent="Archive"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 208.0
+offset_bottom = 88.0
+text = "创建新存档"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kcft0")
+}
+
+[node name="ConfirmationDeleteDialog" type="ConfirmationDialog" parent="."]
+title = "确认删除"
+initial_position = 1
+ok_button_text = "确定删除"
+cancel_button_text = "取消"
+
+[connection signal="pressed" from="Main/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/MutiPlayerButton" to="." method="_on_muti_player_button_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="close_requested" from="Main/MutiplayerDialog" to="." method="_on_mutiplayer_dialog_close_requested"]
+[connection signal="pressed" from="Main/MutiplayerDialog/VBoxContainer/HBoxContainer3/JoinServerButton" to="." method="_on_join_server_button_pressed"]
+[connection signal="pressed" from="Main/MutiplayerDialog/VBoxContainer/HBoxContainer3/CreateServerButton" to="." method="_on_create_server_button_pressed"]
+[connection signal="pressed" from="Archive/GoMainButton" to="." method="_on_go_main_button_pressed"]
+[connection signal="pressed" from="Archive/CreateArchiveButton" to="Archive/ArchiveList" method="_on_create_archive_button_pressed"]
+[connection signal="canceled" from="ConfirmationDeleteDialog" to="Archive/ArchiveList" method="_on_confirmation_delete_dialog_canceled"]
+[connection signal="confirmed" from="ConfirmationDeleteDialog" to="Archive/ArchiveList" method="_on_confirmation_delete_dialog_confirmed"]
