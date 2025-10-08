@@ -5,8 +5,6 @@ var current_delete_archive = null
 
 func _ready() -> void:
 	update_list()
-	Online.multiplayer.connection_failed.connect(connect_faild)
-	Online.multiplayer.connected_to_server.connect(load_game)
 		
 func update_list():
 	for child in get_children():
@@ -26,34 +24,11 @@ func start_game(archive=null):
 		Global.current_archive["archive"] = archive
 		SceneLoading.label.text = "读取存档中..."
 		Global.current_archive["data"] = SaveManager.load_game(archive)
-		
-	if Online.online_type == Online.ONLINE_TYPE.SERVER:
-		SceneLoading.label.text = "创建服务器中..."
-		var error = Online.create_game()
-		print("SERVER error： ", error)
-		if error != OK:
-			connect_faild()
-			return	
-		load_game()
-			
-	elif Online.online_type == Online.ONLINE_TYPE.CLIENT:
-		SceneLoading.label.text = "连接中..."		
-		var error = Online.join_game()
-		print("CLIENT error： ", error)
-		if error != OK:
-			connect_faild()
-			return
-	else:
-		load_game()
+	load_game()
 
 func load_game():
 	SceneLoading.load_scene("res://scene/world/game.tscn")
 	
-func connect_faild():
-	SceneLoading.label.text = "连接失败，请检测网络或联系开发者"
-	await get_tree().create_timer(1).timeout
-	SceneLoading.stop_show()	
-
 func delete_save(archive):
 	if current_delete_archive == null:
 		confirmation_delete_dialog.popup()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bjjqtu4nvm3vx"]
+[gd_scene load_steps=30 format=3 uid="uid://bjjqtu4nvm3vx"]
 
 [ext_resource type="Script" uid="uid://cms3aunth6y2s" path="res://scene/ui/hud.gd" id="1_o8u2p"]
 [ext_resource type="PackedScene" uid="uid://b20t5ok76v2pi" path="res://scene/ui/inventory.tscn" id="1_s3k51"]
@@ -19,8 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://cqh230ntuitrp" path="res://assets/image/gui/Begoia 2025-09-23-09-02.png" id="16_umk68"]
 [ext_resource type="PackedScene" uid="uid://dfbf7f8rqvg80" path="res://scene/ui/way_point.tscn" id="18_vawuw"]
 [ext_resource type="Texture2D" uid="uid://fpwpf6qhm2ba" path="res://assets/image/map/player_pos.png" id="19_vvp4v"]
-[ext_resource type="Script" uid="uid://dvou6fyyeha6r" path="res://scene/ui/message_list.gd" id="20_1wedf"]
-[ext_resource type="Script" uid="uid://bclqbxghonpfi" path="res://scene/ui/lost_connect.gd" id="21_6n34g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aeo18"]
 line_spacing = 30.0
@@ -186,10 +184,6 @@ font_size = 32
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tp2r"]
 bg_color = Color(0.219501, 0.219501, 0.219501, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_1wedf"]
-font_size = 64
-font_color = Color(0, 0, 0, 1)
-
 [node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -345,6 +339,7 @@ libraries = {
 
 [node name="Menu" type="ColorRect" parent="."]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -511,63 +506,12 @@ offset_top = 56.0
 offset_right = 240.0
 offset_bottom = 632.0
 
-[node name="MessageList" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 176.0
-offset_right = 344.0
-offset_bottom = 200.0
-script = ExtResource("20_1wedf")
-
-[node name="LostConnect" type="ColorRect" parent="."]
-process_mode = 3
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("21_6n34g")
-
-[node name="Label" type="Label" parent="LostConnect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -84.0
-offset_right = 160.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "已断开连接"
-label_settings = SubResource("LabelSettings_1wedf")
-
-[node name="Button" type="Button" parent="LostConnect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = 20.0
-offset_right = 160.0
-offset_bottom = 117.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "返回"
-
 [connection signal="quest_accepted" from="Quest/QuestManager" to="QuestComplete" method="_on_quest_manager_quest_accepted"]
 [connection signal="quest_completed" from="Quest/QuestManager" to="QuestComplete" method="_on_quest_manager_quest_completed"]
 [connection signal="pressed" from="Menu/VBoxContainer/GoStartScene" to="Menu" method="_on_go_start_scene_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Setting" to="Menu" method="_on_setting_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Quit" to="Menu" method="_on_quit_pressed"]
-[connection signal="pressed" from="LostConnect/Button" to="LostConnect" method="_on_button_pressed"]
 
 [editable path="InventoryContainer/BuildableInteraction"]
 [editable path="Quest"]

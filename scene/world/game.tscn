@@ -11,21 +11,12 @@ player = NodePath("World/Player")
 
 [node name="World" parent="." instance=ExtResource("1_5kiuu")]
 
-[node name="TemperatureManager" parent="World/Player" index="5" node_paths=PackedStringArray("map")]
-map = NodePath("../..")
-
-[node name="PlayerInfo" parent="World/Player" index="6"]
-money = 50
-
-[node name="EffectManager" parent="World/Player" index="7" node_paths=PackedStringArray("gui_container")]
-gui_container = NodePath("../../../CanvasLayer/HUD/VBoxContainer")
-
-[node name="HeldItemManager" parent="World/Player" index="9" node_paths=PackedStringArray("compositer")]
-compositer = NodePath("../../../CanvasLayer/HUD/InventoryContainer/Inventory/Compositer")
-
 [node name="DropsManager" parent="World" index="5" node_paths=PackedStringArray("pick_manager", "inventory")]
 pick_manager = NodePath("../../CanvasLayer/HUD/InventoryContainer/Inventory/PickManager")
 inventory = NodePath("../../CanvasLayer/HUD/InventoryContainer/Inventory/InventoryData")
+
+[node name="EffectManager" parent="World" index="9" node_paths=PackedStringArray("gui_container")]
+gui_container = NodePath("../../CanvasLayer/HUD/VBoxContainer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -33,14 +24,14 @@ inventory = NodePath("../../CanvasLayer/HUD/InventoryContainer/Inventory/Invento
 mouse_filter = 2
 
 [node name="PlayerInfo" parent="CanvasLayer/HUD" index="0" node_paths=PackedStringArray("player_info")]
-player_info = NodePath("../../../World/Player/PlayerInfo")
+player_info = NodePath("../../../World/PlayerInfo")
 
 [node name="CtrlInventoryGrid" parent="CanvasLayer/HUD/InventoryContainer/Inventory/Panel/HBoxContainer" index="0"]
 custom_minimum_size = Vector2(320, 256)
 
 [node name="ItemInfoPanel" parent="CanvasLayer/HUD/InventoryContainer/Inventory/Panel/HBoxContainer" index="1" node_paths=PackedStringArray("build_manager", "eat_manager", "use_manager")]
 build_manager = NodePath("../../../../../../../World/BuildManager")
-eat_manager = NodePath("../../../../../../../World/Player/EatManager")
+eat_manager = NodePath("../../../../../../../World/EatManager")
 use_manager = NodePath("../../../../../../../World/UseManager")
 
 [node name="InventoryData" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="1"]
@@ -195,26 +186,20 @@ _serialized_format = {
 script = ExtResource("4_lvtoo")
 size = Vector2i(10, 8)
 
-[node name="Compositer" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="6" node_paths=PackedStringArray("additional_composite", "player_info")]
+[node name="Compositer" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="6" node_paths=PackedStringArray("additional_composite")]
 additional_composite = NodePath("../../../../../World/Player/AdditionalCompositeArea")
-player_info = NodePath("../../../../../World/Player/PlayerInfo")
 
 [node name="PickManager" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="7" node_paths=PackedStringArray("map", "player")]
 map = NodePath("../../../../../World/Map")
 player = NodePath("../../../../../World/Player")
 
 [node name="EquipmentManager" parent="CanvasLayer/HUD/InventoryContainer/Inventory" index="8" node_paths=PackedStringArray("hand_manager")]
-hand_manager = NodePath("../../../../../World/Player/HeldItemManager")
+hand_manager = NodePath("../../../../../World/HeldItemManager")
 
-[connection signal="hp_changed" from="World/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_hp_changed"]
-[connection signal="money_changed" from="World/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_money_changed"]
-[connection signal="temperature_changed" from="World/Player/PlayerInfo" to="CanvasLayer/HUD/PlayerInfo" method="_on_player_info_temperature_changed"]
 [connection signal="building_selected" from="World/BuildManager" to="CanvasLayer/HUD" method="_on_build_manager_building_selected"]
 [connection signal="level_changed" from="World/LevelManager" to="CanvasLayer/HUD/ChangeLevel" method="_on_level_manager_level_changed"]
 [connection signal="level_load_started" from="World/LevelManager" to="CanvasLayer/HUD/ChangeLevel" method="_on_level_manager_level_load_started"]
 [connection signal="using_selected" from="World/UseManager" to="CanvasLayer/HUD" method="_on_use_manager_using_selected"]
-[connection signal="quest_accepted" from="CanvasLayer/HUD/Quest/QuestManager" to="CanvasLayer/HUD/QuestComplete" method="_on_quest_manager_quest_accepted"]
-[connection signal="quest_completed" from="CanvasLayer/HUD/Quest/QuestManager" to="CanvasLayer/HUD/QuestComplete" method="_on_quest_manager_quest_completed"]
 
 [editable path="World"]
 [editable path="World/Player"]

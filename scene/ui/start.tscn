@@ -121,9 +121,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = -376.0
+offset_top = -312.0
 offset_right = 324.0
-offset_bottom = -307.0
+offset_bottom = -243.0
 grow_vertical = 0
 text = "凛冬荒原传说"
 label_settings = SubResource("LabelSettings_6hhfw")
@@ -143,11 +143,6 @@ grow_vertical = 0
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "单人游戏"
-
-[node name="MutiPlayerButton" type="Button" parent="Main/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "多人联机"
 
 [node name="SettingButton" type="Button" parent="Main/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -182,69 +177,6 @@ size = Vector2i(500, 300)
 current_screen = 0
 ok_button_text = "关闭"
 dialog_text = "还没写"
-
-[node name="MutiplayerDialog" type="Window" parent="Main"]
-unique_name_in_owner = true
-title = "多人联机"
-initial_position = 1
-size = Vector2i(400, 130)
-visible = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Main/MutiplayerDialog"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -53.0
-offset_right = 192.0
-offset_bottom = 53.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/MutiplayerDialog/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "用户名: "
-
-[node name="UserNameLineEdit" type="LineEdit" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Main/MutiplayerDialog/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "服务器IP地址: "
-
-[node name="ServerIpLineEdit" type="LineEdit" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "127.0.0.1"
-placeholder_text = "127.0.0.1"
-
-[node name="HSeparator" type="HSeparator" parent="Main/MutiplayerDialog/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Main/MutiplayerDialog/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="JoinServerButton" type="Button" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "加入"
-
-[node name="CreateServerButton" type="Button" parent="Main/MutiplayerDialog/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "主持"
 
 [node name="Archive" type="Control" parent="."]
 layout_mode = 1
@@ -311,13 +243,9 @@ ok_button_text = "确定删除"
 cancel_button_text = "取消"
 
 [connection signal="pressed" from="Main/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Main/VBoxContainer/MutiPlayerButton" to="." method="_on_muti_player_button_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="close_requested" from="Main/MutiplayerDialog" to="." method="_on_mutiplayer_dialog_close_requested"]
-[connection signal="pressed" from="Main/MutiplayerDialog/VBoxContainer/HBoxContainer3/JoinServerButton" to="." method="_on_join_server_button_pressed"]
-[connection signal="pressed" from="Main/MutiplayerDialog/VBoxContainer/HBoxContainer3/CreateServerButton" to="." method="_on_create_server_button_pressed"]
 [connection signal="pressed" from="Archive/GoMainButton" to="." method="_on_go_main_button_pressed"]
 [connection signal="pressed" from="Archive/CreateArchiveButton" to="Archive/ArchiveList" method="_on_create_archive_button_pressed"]
 [connection signal="canceled" from="ConfirmationDeleteDialog" to="Archive/ArchiveList" method="_on_confirmation_delete_dialog_canceled"]

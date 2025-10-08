@@ -3,12 +3,15 @@ extends Node
 
 @export var hand: Node2D
 @export var player: Entity
-@export var compositer: Compositer
 
 var hand_item: InventoryItem
 var hand_node: Holdable
+var compositer: Compositer
 
 var in_use = false
+
+func _ready() -> void:
+	compositer = Global.compositer
 
 func equip(item_or_id) -> void:
 	if hand_item:

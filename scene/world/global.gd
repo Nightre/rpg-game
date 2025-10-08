@@ -6,6 +6,7 @@ var level_manager:LevelManager
 var hud:HUD
 var buildable_interaction_manager:BuildableInteractionManager
 var drops:DropsManager
+var compositer:Compositer
 
 var current_archive = {
 	"archive":null,

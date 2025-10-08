@@ -22,7 +22,6 @@ Global="*res://scene/world/global.tscn"
 Data="*res://scene/world/Data.tscn"
 SceneLoading="*res://scene/ui/scene_loading.tscn"
 SaveManager="*res://scene/manager/save_manager.tscn"
-Online="*res://online.tscn"
 
 [dialogic]
 

@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://b60b11r8vecb5"]
+[gd_scene load_steps=14 format=3 uid="uid://b60b11r8vecb5"]
 
 [ext_resource type="PackedScene" uid="uid://c686wl0xky7ae" path="res://scene/world/player.tscn" id="1_pjass"]
 [ext_resource type="Script" uid="uid://uid0tkjte5mv" path="res://scene/world/world.gd" id="1_y3jn2"]
 [ext_resource type="Script" uid="uid://djeyo22mpjp25" path="res://scene/world/cursor_use_area_2d.gd" id="3_se62r"]
 [ext_resource type="Script" uid="uid://decwlt1dyx7vm" path="res://scene/manager/drops_manager.gd" id="5_dp1oe"]
 [ext_resource type="Script" uid="uid://blkuu555um4xw" path="res://scene/manager/use_manager.gd" id="6_ydhjj"]
+[ext_resource type="Script" uid="uid://mncgx7t5515b" path="res://scene/manager/temperature_manager.gd" id="8_q1aoa"]
+[ext_resource type="Script" uid="uid://etwb42mxrpn8" path="res://scene/manager/player_info_manager.gd" id="9_lpx6o"]
+[ext_resource type="Script" uid="uid://hh840xpvep41" path="res://scene/manager/effect_manager.gd" id="10_4w7m2"]
+[ext_resource type="Script" uid="uid://bxkclunlsk15r" path="res://scene/manager/eat_manager.gd" id="11_t7i1g"]
+[ext_resource type="Script" uid="uid://crtcxufqtv1xr" path="res://scene/manager/held_item_manager.gd" id="12_q1aoa"]
 [ext_resource type="Script" uid="uid://cckjkwkighu5k" path="res://scene/manager/build_manager.gd" id="13_lpx6o"]
 [ext_resource type="Script" uid="uid://bw8sljl45s6s3" path="res://scene/manager/level_manager.gd" id="14_4w7m2"]
 
@@ -13,20 +18,15 @@
 [node name="World" type="Node2D"]
 script = ExtResource("1_y3jn2")
 
-[node name="PlayerMultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("uid://c686wl0xky7ae")
-spawn_path = NodePath("..")
-
-[node name="Player" parent="." instance=ExtResource("1_pjass")]
+[node name="Player" parent="." node_paths=PackedStringArray("effect_manager", "held_item_manager") instance=ExtResource("1_pjass")]
 y_sort_enabled = true
 position = Vector2(816, 640)
 motion_mode = 0
 wall_min_slide_angle = 0.261799
+effect_manager = NodePath("../EffectManager")
+held_item_manager = NodePath("../HeldItemManager")
 
-[node name="PlayerInfo" parent="Player" index="6"]
-money = 0
-
-[node name="Healthbar" parent="Player" index="13"]
+[node name="Healthbar" parent="Player" index="8"]
 z_index = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -58,10 +58,30 @@ init_scene = "res://scene/world/level/level_1.tscn"
 [node name="DropsManager" type="Node" parent="." node_paths=PackedStringArray("map", "player_info")]
 script = ExtResource("5_dp1oe")
 map = NodePath("../Map")
-player_info = NodePath("../Player/PlayerInfo")
+player_info = NodePath("../PlayerInfo")
 
 [node name="UseManager" type="Node" parent="."]
 script = ExtResource("6_ydhjj")
+
+[node name="TemperatureManager" type="Node" parent="." node_paths=PackedStringArray("map", "player")]
+script = ExtResource("8_q1aoa")
+map = NodePath("../Map")
+player = NodePath("../Player")
+
+[node name="PlayerInfo" type="Node" parent="."]
+script = ExtResource("9_lpx6o")
+money = 5
+
+[node name="EffectManager" type="Node" parent="."]
+script = ExtResource("10_4w7m2")
+
+[node name="EatManager" type="Node" parent="."]
+script = ExtResource("11_t7i1g")
+
+[node name="HeldItemManager" type="Node" parent="." node_paths=PackedStringArray("hand", "player")]
+script = ExtResource("12_q1aoa")
+hand = NodePath("../Player/HandNode")
+player = NodePath("../Player")
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]

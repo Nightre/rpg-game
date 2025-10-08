@@ -38,4 +38,3 @@ func go_start_scene():
 	SceneLoading.label.text = "保存中..."
 	SaveManager.save_current()
 	SceneLoading.load_scene("res://scene/ui/start.tscn")
-	Online.remove_multiplayer_peer()
